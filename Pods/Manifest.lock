@@ -1,0 +1,13 @@
+PODS:
+  - AMap2DMap (3.1.0)
+  - RongCloudIMKit (2.3.5)
+
+DEPENDENCIES:
+  - AMap2DMap
+  - RongCloudIMKit
+
+SPEC CHECKSUMS:
+  AMap2DMap: a6741139dd16d237713c4fd6cae9a0399ca1fe25
+  RongCloudIMKit: 920b35a7e80b4593bfb3a1c5121bf03c7e1fbf72
+
+COCOAPODS: 0.39.0
