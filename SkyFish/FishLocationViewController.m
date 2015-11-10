@@ -32,6 +32,9 @@
     [self.view addSubview: addBtn];
     
     [self loadData];
+    
+    
+    [self mapInit];
 }
 
 - (void)setupPointAnnotation
@@ -117,7 +120,6 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self mapInit];
 }
 
 - (void)mapInit
@@ -210,7 +212,7 @@ updatingLocation:(BOOL)updatingLocation
     // Pass the selected object to the new view controller.
     if ([segue.identifier isEqualToString:@"toFishLocationDetail"]) {
         NSLog(@"进入钓点详情");
-        [segue.destinationViewController setValue:fishLocationAry[clickedRow][@"id"] forKey:@"fishLocationID"];
+        [segue.destinationViewController setValue:fishLocationAry[clickedRow] forKey:@"fishLocationInfo"];
     }
 }
 

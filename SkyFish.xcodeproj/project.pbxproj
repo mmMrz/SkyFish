@@ -113,6 +113,10 @@
 		04E0EE191BD642E8009E2596 /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E0EE181BD642E8009E2596 /* LeftMenuViewController.m */; settings = {ASSET_TAGS = (); }; };
 		04E0EE1D1BD647D1009E2596 /* FishLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E0EE1C1BD647D1009E2596 /* FishLocationViewController.m */; settings = {ASSET_TAGS = (); }; };
 		04FA57E51BF038B30006F2DD /* FishLocationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FA57E41BF038B30006F2DD /* FishLocationDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
+		04FA57E81BF09C5D0006F2DD /* FishLocationCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FA57E71BF09C5D0006F2DD /* FishLocationCommentViewController.m */; settings = {ASSET_TAGS = (); }; };
+		04FA57EB1BF09C690006F2DD /* FishLocationCommentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FA57EA1BF09C690006F2DD /* FishLocationCommentDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
+		04FA57EE1BF0A28C0006F2DD /* FishLocationCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FA57ED1BF0A28C0006F2DD /* FishLocationCommentCell.m */; settings = {ASSET_TAGS = (); }; };
+		04FA57F11BF0A29F0006F2DD /* FishLocationCommentDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FA57F01BF0A29F0006F2DD /* FishLocationCommentDetailCell.m */; settings = {ASSET_TAGS = (); }; };
 		0EB769A5954A8A0A08F0B3C6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9B15AE749F566F3E832A8CA /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -314,6 +318,14 @@
 		04E0EE1C1BD647D1009E2596 /* FishLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FishLocationViewController.m; sourceTree = "<group>"; };
 		04FA57E31BF038B30006F2DD /* FishLocationDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FishLocationDetailViewController.h; sourceTree = "<group>"; };
 		04FA57E41BF038B30006F2DD /* FishLocationDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FishLocationDetailViewController.m; sourceTree = "<group>"; };
+		04FA57E61BF09C5D0006F2DD /* FishLocationCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FishLocationCommentViewController.h; sourceTree = "<group>"; };
+		04FA57E71BF09C5D0006F2DD /* FishLocationCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FishLocationCommentViewController.m; sourceTree = "<group>"; };
+		04FA57E91BF09C690006F2DD /* FishLocationCommentDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FishLocationCommentDetailViewController.h; sourceTree = "<group>"; };
+		04FA57EA1BF09C690006F2DD /* FishLocationCommentDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FishLocationCommentDetailViewController.m; sourceTree = "<group>"; };
+		04FA57EC1BF0A28C0006F2DD /* FishLocationCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FishLocationCommentCell.h; sourceTree = "<group>"; };
+		04FA57ED1BF0A28C0006F2DD /* FishLocationCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FishLocationCommentCell.m; sourceTree = "<group>"; };
+		04FA57EF1BF0A29F0006F2DD /* FishLocationCommentDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FishLocationCommentDetailCell.h; sourceTree = "<group>"; };
+		04FA57F01BF0A29F0006F2DD /* FishLocationCommentDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FishLocationCommentDetailCell.m; sourceTree = "<group>"; };
 		8ECA1FB88C4904BC3C01D013 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A9B15AE749F566F3E832A8CA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAE9BD33E31F8AA86ACEE968 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -584,6 +596,14 @@
 				04CA487A1BEC96FC00AFEF38 /* FishLocationCallOut.m */,
 				04FA57E31BF038B30006F2DD /* FishLocationDetailViewController.h */,
 				04FA57E41BF038B30006F2DD /* FishLocationDetailViewController.m */,
+				04FA57E61BF09C5D0006F2DD /* FishLocationCommentViewController.h */,
+				04FA57E71BF09C5D0006F2DD /* FishLocationCommentViewController.m */,
+				04FA57EC1BF0A28C0006F2DD /* FishLocationCommentCell.h */,
+				04FA57ED1BF0A28C0006F2DD /* FishLocationCommentCell.m */,
+				04FA57E91BF09C690006F2DD /* FishLocationCommentDetailViewController.h */,
+				04FA57EA1BF09C690006F2DD /* FishLocationCommentDetailViewController.m */,
+				04FA57EF1BF0A29F0006F2DD /* FishLocationCommentDetailCell.h */,
+				04FA57F01BF0A29F0006F2DD /* FishLocationCommentDetailCell.m */,
 			);
 			name = "钓点";
 			sourceTree = "<group>";
@@ -898,6 +918,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04FA57EE1BF0A28C0006F2DD /* FishLocationCommentCell.m in Sources */,
 				04A14CCD1BDDD8EF002D8452 /* UIAlertView+AFNetworking.m in Sources */,
 				04A14CCA1BDDD8EF002D8452 /* AFURLSessionManager.m in Sources */,
 				04A14CC61BDDD8EF002D8452 /* AFSecurityPolicy.m in Sources */,
@@ -914,6 +935,7 @@
 				04E0EE151BD6422B009E2596 /* LLBlurSidebar.m in Sources */,
 				0424D9B71BE314E600BA67E6 /* DynamicDetailSubCommentCell.m in Sources */,
 				04A14CCF1BDDD8EF002D8452 /* UIImageView+AFNetworking.m in Sources */,
+				04FA57EB1BF09C690006F2DD /* FishLocationCommentDetailViewController.m in Sources */,
 				0408902C1BDE300200E69790 /* UIImage+GIF.m in Sources */,
 				0412870D1BD79F1D0032411F /* CSMessageCache.m in Sources */,
 				04A14CC21BDDD8EF002D8452 /* AFHTTPRequestOperation.m in Sources */,
@@ -954,6 +976,7 @@
 				0412871D1BD79F1D0032411F /* UIView+Utilities.m in Sources */,
 				04DD54811BE75D4000D9F29B /* ChatRecentViewController.m in Sources */,
 				0408902E1BDE300200E69790 /* UIImage+WebP.m in Sources */,
+				04FA57F11BF0A29F0006F2DD /* FishLocationCommentDetailCell.m in Sources */,
 				0412871F1BD79F1D0032411F /* KeyBoardNotification.m in Sources */,
 				04A14CD81BDDD934002D8452 /* ProgressHUD.m in Sources */,
 				04A14CCC1BDDD8EF002D8452 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
@@ -973,6 +996,7 @@
 				04A14CCE1BDDD8EF002D8452 /* UIButton+AFNetworking.m in Sources */,
 				040890241BDE300200E69790 /* SDImageCache.m in Sources */,
 				040890281BDE300200E69790 /* SDWebImageDownloaderOperation.m in Sources */,
+				04FA57E81BF09C5D0006F2DD /* FishLocationCommentViewController.m in Sources */,
 				0412870F1BD79F1D0032411F /* GlobalData.m in Sources */,
 				04A14C9A1BDDD781002D8452 /* CheckMsgError.m in Sources */,
 				04A14CC31BDDD8EF002D8452 /* AFHTTPRequestOperationManager.m in Sources */,

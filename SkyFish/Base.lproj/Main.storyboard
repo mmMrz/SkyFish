@@ -662,17 +662,23 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3gv-gs-J8N">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="3gv-gs-J8N">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="UmP-Ni-UOX">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="UmP-Ni-UOX">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <animations/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </scrollView>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="j82-P1-WFC">
+                                        <rect key="frame" x="140" y="143" width="39" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <animations/>
+                                    </pageControl>
                                     <view contentMode="scaleToFill" id="oXq-8f-Ubd">
-                                        <rect key="frame" x="0.0" y="163" width="320" height="108"/>
+                                        <rect key="frame" x="0.0" y="188" width="320" height="108"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ufU-xJ-BJC">
@@ -708,7 +714,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <animations/>
                                             </imageView>
-                                            <view contentMode="scaleToFill" id="9Mx-q2-W4r">
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" id="9Mx-q2-W4r">
                                                 <rect key="frame" x="8" y="8" width="60" height="15"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
@@ -750,6 +756,9 @@
                                                 <state key="normal" title="收藏">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="favorite:" destination="g6v-vI-2eP" eventType="touchUpInside" id="HZr-eO-mBV"/>
+                                                </connections>
                                             </button>
                                             <view contentMode="scaleToFill" id="f5P-WB-aqi">
                                                 <rect key="frame" x="0.0" y="34" width="320" height="74"/>
@@ -770,7 +779,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="MAZ-E4-T0X">
-                                        <rect key="frame" x="0.0" y="279" width="320" height="70"/>
+                                        <rect key="frame" x="0.0" y="304" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" id="SUm-h8-fr8">
@@ -780,7 +789,7 @@
                                                 <color key="backgroundColor" red="0.72949389180000002" green="0.72949389180000002" blue="0.72949389180000002" alpha="1" colorSpace="calibratedRGB"/>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="定位地址" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wry-JI-bGQ">
-                                                <rect key="frame" x="36" y="11" width="229" height="13"/>
+                                                <rect key="frame" x="36" y="11" width="222" height="13"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <animations/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -824,12 +833,20 @@
                                                 <animations/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NoM-A2-JIb">
+                                                <rect key="frame" x="266" y="3" width="46" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <animations/>
+                                                <connections>
+                                                    <action selector="navigation:" destination="g6v-vI-2eP" eventType="touchUpInside" id="ZX0-BP-5rC"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="OTQ-IR-ZXC">
-                                        <rect key="frame" x="0.0" y="357" width="320" height="35"/>
+                                        <rect key="frame" x="0.0" y="382" width="320" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="钓点-评论" id="S1o-IC-fFT">
@@ -863,7 +880,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="iZr-I6-Ffh">
-                                        <rect key="frame" x="0.0" y="400" width="320" height="175"/>
+                                        <rect key="frame" x="0.0" y="425" width="320" height="175"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" id="JuH-Dz-Ufp">
@@ -965,7 +982,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="qto-uT-hXa">
-                                        <rect key="frame" x="0.0" y="583" width="320" height="70"/>
+                                        <rect key="frame" x="0.0" y="608" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" id="zt4-qU-ahw">
@@ -1000,7 +1017,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="XqY-wO-stg">
-                                        <rect key="frame" x="0.0" y="661" width="320" height="70"/>
+                                        <rect key="frame" x="0.0" y="686" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" id="z95-6F-6Es">
@@ -1038,7 +1055,7 @@
                                 <animations/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="size" keyPath="contentSize">
-                                        <size key="value" width="0.0" height="736"/>
+                                        <size key="value" width="0.0" height="760"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </scrollView>
@@ -1049,30 +1066,48 @@
                     <navigationItem key="navigationItem" id="MCq-1M-I35"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
+                    <connections>
+                        <outlet property="areaLbl" destination="wlF-we-stF" id="386-7W-hdE"/>
+                        <outlet property="commentCountLbl" destination="7Bt-I3-r3X" id="CRt-kU-zAe"/>
+                        <outlet property="descripeLbl" destination="vMB-ty-lUH" id="Hex-qG-qJW"/>
+                        <outlet property="favoriteBtn" destination="DUN-hL-utF" id="2QZ-ee-dCi"/>
+                        <outlet property="fishTypeLbl" destination="Djo-bF-6BW" id="x37-3r-Dud"/>
+                        <outlet property="gradeLbl" destination="ufU-xJ-BJC" id="Wnv-EG-6id"/>
+                        <outlet property="gradeView" destination="9Mx-q2-W4r" id="HCj-3J-WiO"/>
+                        <outlet property="locationLbl" destination="wry-JI-bGQ" id="AT1-Jj-fHv"/>
+                        <outlet property="otakLbl" destination="J2R-9E-vjC" id="Efe-HJ-s6f"/>
+                        <outlet property="personCostLbl" destination="u9g-cG-8dV" id="sUn-ib-yb1"/>
+                        <outlet property="phoneLbl" destination="3aJ-CD-WrQ" id="hKl-xa-h8T"/>
+                        <outlet property="pictureScroll" destination="UmP-Ni-UOX" id="xIc-DU-5Qu"/>
+                        <outlet property="pictureScrollPageControl" destination="j82-P1-WFC" id="mhu-72-CgG"/>
+                        <outlet property="typeView" destination="f5P-WB-aqi" id="444-BN-uDI"/>
+                        <outlet property="upOwnerView" destination="4Qq-Iz-Ahe" id="8QE-xK-oeC"/>
+                        <outlet property="waterDeepLbl" destination="HkS-Pn-lbH" id="Pjz-Sd-fCp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CaH-LF-aLC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="682" y="-241"/>
         </scene>
-        <!--View Controller-->
+        <!--Fish Location Comment View Controller-->
         <scene sceneID="apV-Ji-Hhj">
             <objects>
-                <viewController id="ofI-KM-Aep" sceneMemberID="viewController">
+                <viewController id="ofI-KM-Aep" customClass="FishLocationCommentViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sAG-UM-mEP">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="186" sectionHeaderHeight="28" sectionFooterHeight="28" id="6jL-pA-azz">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="185" sectionHeaderHeight="28" sectionFooterHeight="28" id="6jL-pA-azz">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SNServicesTableCell" rowHeight="186" id="PBu-zb-i3J" customClass="SNServicesTableCell">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="186"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FishLocationCommentCellIdentifier" rowHeight="185" id="PBu-zb-i3J" customClass="FishLocationCommentCell">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="185"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PBu-zb-i3J" id="kKg-KF-kp2">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="185.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="184.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="张燕枭" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fs7-p0-Zxn">
@@ -1102,36 +1137,6 @@
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1Zs-up-GXu">
-                                                    <rect key="frame" x="8" y="62" width="304" height="84"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
-                                                    <string key="text">赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间</string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <view contentMode="scaleToFill" id="mNO-To-OiW">
-                                                    <rect key="frame" x="0.0" y="157" width="320" height="28"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="评论（列表中）" id="s3o-gN-JBW">
-                                                            <rect key="frame" x="258" y="0.0" width="16" height="16"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <animations/>
-                                                        </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4nV-HX-bY1">
-                                                            <rect key="frame" x="278" y="3" width="30" height="11"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <animations/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                            <color key="textColor" red="0.45456342709999997" green="0.45456342709999997" blue="0.45456342709999997" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <animations/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </view>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="评价（暗）" id="sTU-yn-NPx">
                                                     <rect key="frame" x="268" y="14" width="15" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1190,6 +1195,36 @@
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1Zs-up-GXu">
+                                                    <rect key="frame" x="8" y="62" width="304" height="84"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <animations/>
+                                                    <string key="text">赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间赶时间</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" id="mNO-To-OiW">
+                                                    <rect key="frame" x="0.0" y="157" width="320" height="28"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="评论（列表中）" id="s3o-gN-JBW">
+                                                            <rect key="frame" x="258" y="0.0" width="16" height="16"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <animations/>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4nV-HX-bY1">
+                                                            <rect key="frame" x="278" y="3" width="30" height="11"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <animations/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                            <color key="textColor" red="0.45456342709999997" green="0.45456342709999997" blue="0.45456342709999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <animations/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
                                             </subviews>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -1198,6 +1233,7 @@
                                             <outlet property="bottom_view" destination="mNO-To-OiW" id="VKT-cE-1Ou"/>
                                             <outlet property="commentCount_lbl" destination="4nV-HX-bY1" id="cB1-ec-fmd"/>
                                             <outlet property="content_lbl" destination="1Zs-up-GXu" id="56B-u4-I9F"/>
+                                            <outlet property="grade_view" destination="HG8-tP-dAI" id="1vO-FF-ysH"/>
                                             <outlet property="head_ImgView" destination="lwu-cx-qv2" id="uoL-de-PKh"/>
                                             <outlet property="name_lbl" destination="fs7-p0-Zxn" id="4yh-s3-2td"/>
                                             <outlet property="time_lbl" destination="4lD-XM-0o8" id="BSb-O8-D1e"/>
@@ -1205,8 +1241,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="Rry-Ol-Xsj" id="IQg-ER-NPV"/>
-                                    <outlet property="delegate" destination="Rry-Ol-Xsj" id="hsE-7u-w8U"/>
+                                    <outlet property="dataSource" destination="ofI-KM-Aep" id="D90-UR-d1z"/>
+                                    <outlet property="delegate" destination="ofI-KM-Aep" id="odf-rv-UHL"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -1215,6 +1251,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="7MH-Zg-GR1"/>
                     <connections>
+                        <outlet property="_tableView" destination="6jL-pA-azz" id="SgI-Ed-Pic"/>
                         <segue destination="VEB-bF-yv7" kind="push" identifier="toFishLocationCommentDetail" id="ak9-hp-J0a"/>
                     </connections>
                 </viewController>
@@ -1222,10 +1259,10 @@
             </objects>
             <point key="canvasLocation" x="1078" y="-241"/>
         </scene>
-        <!--View Controller-->
+        <!--Fish Location Comment Detail View Controller-->
         <scene sceneID="MAu-3K-fdC">
             <objects>
-                <viewController id="VEB-bF-yv7" sceneMemberID="viewController">
+                <viewController id="VEB-bF-yv7" customClass="FishLocationCommentDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8mp-LV-ekj">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1236,7 +1273,7 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" clipsSubviews="YES" contentMode="scaleToFill" id="Cr2-34-yvo">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="231"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="191"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="张燕枭" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8Bx-e9-MwM">
@@ -1276,7 +1313,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" id="aFd-h6-ipY">
-                                            <rect key="frame" x="0.0" y="154" width="320" height="77"/>
+                                            <rect key="frame" x="0.0" y="154" width="320" height="37"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="评论（列表中）" id="sKl-fc-qra">
@@ -1292,28 +1329,6 @@
                                                     <color key="textColor" red="0.45456342709999997" green="0.45456342709999997" blue="0.45456342709999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" id="ccO-Fg-BBx">
-                                                    <rect key="frame" x="8" y="37" width="304" height="40"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <subviews>
-                                                        <view contentMode="scaleToFill" id="vQy-0l-RyQ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="304" height="0.5"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <animations/>
-                                                            <color key="backgroundColor" red="0.72949389180000002" green="0.72949389180000002" blue="0.72949389180000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </view>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="觉得很赞" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Sb5-s1-Yph">
-                                                            <rect key="frame" x="182" y="9" width="114" height="21"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <animations/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <animations/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                </view>
                                             </subviews>
                                             <animations/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1381,7 +1396,7 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentCell" rowHeight="83" id="1IU-CL-ceN" customClass="DynamicDetailCommentCell">
-                                        <rect key="frame" x="0.0" y="259" width="320" height="83"/>
+                                        <rect key="frame" x="0.0" y="219" width="320" height="83"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1IU-CL-ceN" id="Kfd-aV-Mt2">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="83"/>
@@ -1450,7 +1465,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SubCommentCell" rowHeight="20" id="lbN-KZ-cUM" customClass="DynamicDetailSubCommentCell">
-                                        <rect key="frame" x="0.0" y="342" width="320" height="20"/>
+                                        <rect key="frame" x="0.0" y="302" width="320" height="20"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lbN-KZ-cUM" id="ikK-Cn-gPv">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="20"/>
@@ -1492,6 +1507,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="OSj-4C-l3O"/>
+                    <connections>
+                        <outlet property="_tableView" destination="rfk-6G-oYA" id="qsc-7Z-tfP"/>
+                        <outlet property="commentCount_lbl" destination="AkT-Dq-PSi" id="pu9-po-VQR"/>
+                        <outlet property="content_lbl" destination="k5y-HQ-eTs" id="Tlc-yl-vVa"/>
+                        <outlet property="grade_view" destination="Bx7-q2-kvg" id="idC-Yf-GS3"/>
+                        <outlet property="head_ImgView" destination="X2K-aJ-ruW" id="P8U-v0-ymG"/>
+                        <outlet property="name_lbl" destination="8Bx-e9-MwM" id="ehj-oZ-1ep"/>
+                        <outlet property="tableHeaderBottom_view" destination="aFd-h6-ipY" id="kP1-NO-OaC"/>
+                        <outlet property="tableHeader_view" destination="Cr2-34-yvo" id="Kny-eA-akt"/>
+                        <outlet property="time_lbl" destination="8ti-lq-yKx" id="xix-Ul-Ywx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MOk-bK-DHx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

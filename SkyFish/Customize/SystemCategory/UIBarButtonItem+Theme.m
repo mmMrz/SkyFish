@@ -22,7 +22,7 @@
 
 + (UIBarButtonItem *)themedBackButtonWithTarget:(id)target andSelector:(SEL)selector {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *buttonImage = [UIImage imageNamed:@"back"];
+    UIImage *buttonImage = [UIImage imageNamed:@"返回箭头"];
     [button setImage:buttonImage forState:UIControlStateNormal];
     [button setFrame:CGRectMake(0, 0, buttonImage.size.width, buttonImage.size.height)];
     [button addTarget:target action:selector forControlEvents:UIControlEventTouchUpInside];

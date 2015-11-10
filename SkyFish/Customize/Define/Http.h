@@ -20,6 +20,8 @@
 //钓点
 #define PLACE_GETPLACE @"/place/getPlace"//获取钓点列表
 #define PLACE_GETITEM @"/place/getItem"//获取钓点详情
+#define PLACE_SCORELIST @"/place/scoreList"//获取评分列表
+#define PLACE_SCOREDETAIL @"/place/scoreDetail"//获取评分详情
 
 //消息
 #define WEIBO_ADD @"weibo/add/"//写微博

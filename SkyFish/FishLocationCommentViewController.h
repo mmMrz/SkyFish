@@ -1,5 +1,5 @@
 //
-//  FishLocationDetailViewController.h
+//  FishLocationCommentViewController.h
 //  SkyFish
 //
 //  Created by 张燕枭 on 15/11/9.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FishLocationDetailViewController : UIViewController
+@interface FishLocationCommentViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) NSDictionary *fishLocationInfo;
 
