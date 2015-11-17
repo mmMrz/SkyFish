@@ -48,8 +48,8 @@
     [parameters setObject:_fishLocationInfo[@"id"] forKey:@"pid"];
     [parameters setObject:content_tv.text forKey:@"content"];
     [parameters setObject:@"" forKey:@"images"];
-    [parameters setObject:@"" forKey:@"score"];
-    [CSLoadData requestOfInfomationWithURI:PLACE_SCOREDETAIL andParameters:parameters complete:^(NSDictionary *responseDic) {
+    [parameters setObject:@"5" forKey:@"score"];
+    [CSLoadData requestOfInfomationWithURI:PLACE_SCORE andParameters:parameters complete:^(NSDictionary *responseDic) {
         if ([CheckData isEmpty:responseDic[@"msg"]]) {
             [ProgressHUD dismiss];
         }else{
