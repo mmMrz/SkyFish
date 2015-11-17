@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FishLocationCommentDetailViewController : UIViewController{
+@interface FishLocationCommentDetailViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>{
     __weak IBOutlet UIImageView *head_ImgView;
     __weak IBOutlet UILabel *name_lbl;
     __weak IBOutlet UILabel *time_lbl;

@@ -29,6 +29,22 @@
     page = 0;
     commentAry = [[NSMutableArray alloc] initWithCapacity:20];
     [self loadData];
+    
+    
+    UIButton *addBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-90, SCREEN_HEIGHT-NAV_HEIGHT-90, 60, 60)];
+    [addBtn setBackgroundColor:[UIColor orangeColor]];
+    addBtn.layer.cornerRadius = 30;
+    addBtn.layer.masksToBounds = YES;
+    [addBtn setTitle:@"+" forState:UIControlStateNormal];
+    [addBtn.titleLabel setFont:[UIFont systemFontOfSize:50.0]];
+    [addBtn setContentEdgeInsets:UIEdgeInsetsMake( -5, 0, 5, 0)];
+    [addBtn addTarget:self action:@selector(topublishComment:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview: addBtn];
+}
+
+- (void)topublishComment:(UIButton*)sender
+{
+    [self performSegueWithIdentifier:@"toAddComment" sender:self];
 }
 
 - (void)loadData
@@ -93,6 +109,8 @@
     // Pass the selected object to the new view controller.
     if ([segue.identifier isEqualToString:@"toFishLocationCommentDetail"]) {
         [segue.destinationViewController setValue:commentAry[clickedRow] forKey:@"fishLocationCommentInfo"];
+    }else if([segue.identifier isEqualToString:@"toAddComment"]){
+        [[[(UINavigationController*)segue.destinationViewController viewControllers] firstObject] setValue:_fishLocationInfo forKey:@"fishLocationInfo"];
     }
 }
 

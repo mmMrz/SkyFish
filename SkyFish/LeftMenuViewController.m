@@ -17,7 +17,6 @@
     __weak IBOutlet UILabel *name_lbl;
     __weak IBOutlet UILabel *sign_lbl;
     
-    
 }
 
 @property (nonatomic, retain) IBOutlet UITableView* menuTableView;
@@ -35,6 +34,7 @@
     [self.menuTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [self.menuTableView setFrame:self.contentView.bounds];
     [self.contentView addSubview:self.menuTableView];
+    [self.menuTableView registerNib:[UINib nibWithNibName:@"LeftMenuCell" bundle:nil] forCellReuseIdentifier:@"MenuTableCellIdentifier"];
 //    [self.menuTableView removeFromSuperview];
     
     

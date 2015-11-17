@@ -18,7 +18,7 @@
     //计算标题实际frame大小，并将label的frame变成实际大小
     CGSize nameSize = [name_lbl sizeThatFits:nameMaxSize];
     CGRect nameLblFrame = name_lbl.frame;
-    nameLblFrame.size.width = nameSize.width;
+    nameLblFrame.size = nameSize;
     [name_lbl setFrame:nameLblFrame];
     
     [content_lbl setText:subCommentInfo[@"content"]];

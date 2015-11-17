@@ -34,8 +34,7 @@ static ViewController *instance;
     [panGesture delaysTouchesBegan];
     [self.view addGestureRecognizer:panGesture];
     
-    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    self.leftMenuVC = [story instantiateViewControllerWithIdentifier:@"LeftMenuViewController"];
+    self.leftMenuVC = [[LeftMenuViewController alloc] init];
 //    [self.leftMenuVC setBgRGB:0x000000];
     [self.leftMenuVC setBaseController:self];
     [self.leftMenuVC setDelegate:self];

@@ -42,6 +42,8 @@
     [self.navigationItem addTitleViewWithTitle:_fishLocationInfo[@"name"]];
     [self.navigationItem addLeftBarButtonItem:[UIBarButtonItem themedBackButtonWithTarget:self andSelector:@selector(navBack)]];
     [self loadData];
+    
+    
 }
 
 - (void)navBack

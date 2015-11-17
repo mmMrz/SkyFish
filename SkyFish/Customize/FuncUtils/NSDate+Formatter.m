@@ -17,12 +17,12 @@
  * @return a pretty date string, like "just now", "1 minute ago", "2 weeks ago", etc
  */
 - (NSString *)toDisplyString {
-    NSString *suffix = @"ago";
+    NSString *suffix = @"之前";
     
     float different = [self timeIntervalSinceDate:[NSDate date]];
     if (different < 0) {
         different = -different;
-        suffix = @"from now";
+        suffix = @"前";
     }
     
     // days = different / (24 * 60 * 60), take the floor value
@@ -37,44 +37,44 @@
     if (dayDifferent <= 0) {
         // lower than 60 seconds
         if (different < 60) {
-            return @"just now";
+            return @"刚刚";
         }
         
         // lower than 120 seconds => one minute and lower than 60 seconds
         if (different < 120) {
-            return [NSString stringWithFormat:@"1 minute %@", suffix];
+            return [NSString stringWithFormat:@"1分钟%@", suffix];
         }
         
         // lower than 60 minutes
         if (different < 60 * 60) {
-            return [NSString stringWithFormat:@"%d minutes %@", (int)floor(different / 60), suffix];
+            return [NSString stringWithFormat:@"%d分钟%@", (int)floor(different / 60), suffix];
         }
         
         // lower than 60 * 2 minutes => one hour and lower than 60 minutes
         if (different < 7200) {
-            return [NSString stringWithFormat:@"1 hour %@", suffix];
+            return [NSString stringWithFormat:@"1小时%@", suffix];
         }
         
         // lower than one day
         if (different < 86400) {
-            return [NSString stringWithFormat:@"%d hours %@", (int)floor(different / 3600), suffix];
+            return [NSString stringWithFormat:@"%d小时%@", (int)floor(different / 3600), suffix];
         }
     }
     // lower than one week
     else if (days < 7) {
-        return [NSString stringWithFormat:@"%d day%@ %@", days, days == 1 ? @"" : @"s", suffix];
+        return [NSString stringWithFormat:@"%d天%@%@", days, days == 1 ? @"" : @"", suffix];
     }
     // lager than one week but lower than a month
     else if (weeks < 4) {
-        return [NSString stringWithFormat:@"%d week%@ %@", weeks, weeks == 1 ? @"" : @"s", suffix];
+        return [NSString stringWithFormat:@"%d周%@%@", weeks, weeks == 1 ? @"" : @"", suffix];
     }
     // lager than a month and lower than a year
     else if (months < 12) {
-        return [NSString stringWithFormat:@"%d month%@ %@", months, months == 1 ? @"" : @"s", suffix];
+        return [NSString stringWithFormat:@"%d月%@%@", months, months == 1 ? @"" : @"", suffix];
     }
     // lager than a year
     else {
-        return [NSString stringWithFormat:@"%d year%@ %@", years, years == 1 ? @"" : @"s", suffix];
+        return [NSString stringWithFormat:@"%d年%@%@", years, years == 1 ? @"" : @"", suffix];
     }
     
     return self.description;

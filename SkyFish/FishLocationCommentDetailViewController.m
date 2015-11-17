@@ -7,6 +7,8 @@
 //
 
 #import "FishLocationCommentDetailViewController.h"
+#import "DynamicDetailCommentCell.h"
+#import "DynamicDetailSubCommentCell.h"
 
 @interface FishLocationCommentDetailViewController (){
     
@@ -43,6 +45,7 @@
 - (void)setupView
 {
     [name_lbl setText:_fishLocationCommentInfo[@"authorName"]];
+    [grade_view setWidth:75*[_fishLocationCommentInfo[@"score"] floatValue]/5];
     [commentCount_lbl setText:[NSString stringWithFormat:@"%@",_fishLocationCommentInfo[@"commentCount"]]];
     
     NSString *headUrl = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)_fishLocationCommentInfo[@"authorAvatar"], nil, nil, kCFStringEncodingUTF8));
@@ -90,6 +93,47 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return [_fishLocationCommentInfo[@"comment"] count];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [_fishLocationCommentInfo[@"comment"][section][@"child"] count]+1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row==0) {
+        DynamicDetailCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CommentCell"];
+        return [cell cellHeightWithCommentInfo:_fishLocationCommentInfo[@"comment"][indexPath.section]];
+    }else{
+        DynamicDetailSubCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SubCommentCell"];
+        return [cell cellHeightWithSubCommentInfo:_fishLocationCommentInfo[@"comment"][indexPath.section][@"child"][indexPath.row-1]];
+    }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary *fishLocationCommentInfo = [_fishLocationCommentInfo[@"comment"] objectAtIndex:indexPath.section];
+    if (indexPath.row==0) {
+        DynamicDetailCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CommentCell"];
+        [cell setupViewWithCommentInfo:fishLocationCommentInfo];
+        return cell;
+    }else{
+        DynamicDetailSubCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SubCommentCell"];
+        [cell setupViewWithSubCommentInfo:fishLocationCommentInfo[@"child"][indexPath.row-1]];
+        return cell;
+    }
+    return nil;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
 }
 
 /*

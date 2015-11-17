@@ -15,6 +15,7 @@
 #import "UINavigationItem+CorrectOffset.h"
 #import "UIBarButtonItem+Theme.h"
 #import "UINavigationController+Theme.h"
+#import "UIImage+Size.h"
 #import "NSDate+Formatter.h"
 #import "UIView+Utilities.h"
 #import "UINavigationBar+Theme.h"
