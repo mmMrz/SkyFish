@@ -43,11 +43,11 @@
     if ([commentInfo[@"content"] isEqualToString:@""]||commentInfo[@"content"]==nil) {
         textSize.height=0;
     }
-    CGRect textFrame = _content_lbl.frame;
-    textFrame.size.height = textSize.height;
-    [_content_lbl setFrame:textFrame];
-    
-    CGRect _bottom_viewFrame = _bottom_view.frame;
+    for (NSLayoutConstraint *constraint in _content_lbl.constraints) {
+        if (constraint.firstItem==_content_lbl&&constraint.firstAttribute==NSLayoutAttributeHeight) {
+            constraint.constant = textSize.height;
+        }
+    }
     
     //加载帖子图片
     NSArray *images = commentInfo[@"images"];
@@ -60,15 +60,20 @@
         [imageView setTag:1];
         NSString *imageUrl = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)images[i], nil, nil, kCFStringEncodingUTF8));
         UIImage *image = [UIImage imageNamed:@"testJPG"];
-        [imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:image completed:^(UIImage *image,NSError *error,SDImageCacheType cacheType, NSURL *imageURL){
-            
-            [[GlobalData sharedInstance].currentUserInfo setAvatarImg:image];
-        }];
+        [imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:image completed:^(UIImage *image,NSError *error,SDImageCacheType cacheType, NSURL *imageURL){}];
         [self.contentView addSubview:imageView];
-        _bottom_viewFrame.origin.y = imageView.origin.y+imageView.height+2;
+        
+        NSArray *imageVConstraintAry = [NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:|-%f-[imageView(%f)]",_content_lbl.origin.y+_content_lbl.height+2+(imageWidth+2)*(i/3),imageWidth] options:0 metrics:nil views:@{@"imageView": imageView}];
+        NSArray *imageHConstraintAry = [NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:|-%f-[imageView(%f)]",8+i*(imageWidth+2),imageWidth] options:0 metrics:nil views:@{@"imageView": imageView}];
+        
+        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0")) {
+            [NSLayoutConstraint activateConstraints:imageVConstraintAry];
+            [NSLayoutConstraint activateConstraints:imageHConstraintAry];
+        }else{
+            [imageView addConstraints:imageVConstraintAry];
+            [imageView addConstraints:imageHConstraintAry];
+        }
     }
-    [_bottom_view setFrame:_bottom_viewFrame];
-    
 }
 
 - (float)cellHeightWithFishLocationCommentInfo:(NSDictionary *)commentInfo
