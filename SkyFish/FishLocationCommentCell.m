@@ -17,16 +17,19 @@
 - (void)setupViewWithFishLocationCommentInfo:(NSDictionary *)commentInfo
 {
     //清空原始数据
-    
     for (id view in [self.contentView subviews]) {
-        NSLog(@"%@",view);
         if ([view isKindOfClass:[UIImageView class]]&&[view tag]==1) {
             [view removeFromSuperview];
         }
     }
-    
+
     [self.name_lbl setText:commentInfo[@"authorName"]];
-    [self.grade_view setWidth:75*[commentInfo[@"score"] floatValue]/5];
+    
+    for (NSLayoutConstraint *constraint in self.grade_view.constraints) {
+        if (constraint.firstItem==self.grade_view&&constraint.firstAttribute==NSLayoutAttributeWidth) {
+            constraint.constant = 150*[commentInfo[@"score"] floatValue]/5;
+        }
+    }
     [self.content_lbl setText:commentInfo[@"content"]];
     [self.commentCount_lbl setText:[NSString stringWithFormat:@"%@",commentInfo[@"commentCount"]]];
     
@@ -56,16 +59,16 @@
     }
     float imageWidth = (SCREEN_WIDTH-16-6)/3;
     for (int i=0; i<images.count; i++) {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(8+i*(imageWidth+2), _content_lbl.origin.y+_content_lbl.height+2+(imageWidth+2)*(i/3), imageWidth, imageWidth)];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, imageWidth, imageWidth)];
         [imageView setTag:1];
         NSString *imageUrl = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)images[i], nil, nil, kCFStringEncodingUTF8));
         UIImage *image = [UIImage imageNamed:@"testJPG"];
         [imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:image completed:^(UIImage *image,NSError *error,SDImageCacheType cacheType, NSURL *imageURL){}];
         [self.contentView addSubview:imageView];
         
-        NSArray *imageVConstraintAry = [NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:|-%f-[imageView(%f)]",_content_lbl.origin.y+_content_lbl.height+2+(imageWidth+2)*(i/3),imageWidth] options:0 metrics:nil views:@{@"imageView": imageView}];
-        NSArray *imageHConstraintAry = [NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:|-%f-[imageView(%f)]",8+i*(imageWidth+2),imageWidth] options:0 metrics:nil views:@{@"imageView": imageView}];
-        
+        imageView.translatesAutoresizingMaskIntoConstraints = NO;
+        NSArray *imageVConstraintAry = [NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:[contentLbl]-%f-[imageView(%f)]",2+(imageWidth+2)*(i/3),imageWidth] options:0 metrics:nil views:@{@"contentLbl":_content_lbl,@"imageView": imageView}];
+        NSArray *imageHConstraintAry = [NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:|-%f-[imageView(%f)]",8+(i%3)*(imageWidth+2),imageWidth] options:0 metrics:nil views:@{@"imageView": imageView}];
         if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0")) {
             [NSLayoutConstraint activateConstraints:imageVConstraintAry];
             [NSLayoutConstraint activateConstraints:imageHConstraintAry];

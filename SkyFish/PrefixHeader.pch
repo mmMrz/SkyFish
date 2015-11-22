@@ -31,4 +31,6 @@
 #import "UIImageView+WebCache.h"
 #import "CheckData.h"
 #import "ProgressHUD.h"
+#import "NSObject+JSON.h"
+#import "NSURL+Parameter.h"
 #endif

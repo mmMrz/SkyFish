@@ -27,6 +27,7 @@
 @property (nonatomic, strong) NSString *fansCount;
 @property (nonatomic, strong) NSString *rongToken;
 @property (nonatomic, strong) NSString *token;//登录后返回
+@property (nonatomic, strong) NSString *qiniuToken;
 @property (nonatomic, strong) NSString *gender;
 
 - (void)synchronize;

@@ -45,9 +45,13 @@
 - (void)setupView
 {
     [name_lbl setText:_fishLocationCommentInfo[@"authorName"]];
-    [grade_view setWidth:75*[_fishLocationCommentInfo[@"score"] floatValue]/5];
+    for (NSLayoutConstraint *constraint in grade_view.constraints) {
+        if (constraint.firstItem==grade_view&&constraint.firstAttribute==NSLayoutAttributeWidth) {
+            constraint.constant = 150*[_fishLocationCommentInfo[@"score"] floatValue]/5;
+        }
+    }
     [commentCount_lbl setText:[NSString stringWithFormat:@"%@",_fishLocationCommentInfo[@"commentCount"]]];
-    
+   
     NSString *headUrl = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)_fishLocationCommentInfo[@"authorAvatar"], nil, nil, kCFStringEncodingUTF8));
     UIImage *defaultHead = [UIImage imageNamed:@"未登录头像"];
     [head_ImgView sd_setImageWithURL:[NSURL URLWithString:headUrl] placeholderImage:defaultHead completed:^(UIImage *image,NSError *error,SDImageCacheType cacheType, NSURL *imageURL){
@@ -55,6 +59,7 @@
     }];
     //加载帖子内容
     [content_lbl setText:_fishLocationCommentInfo[@"content"]];
+    
     //设置内容的行高上限
     CGSize textMaxSize = CGSizeMake(SCREEN_WIDTH-16,MAXFLOAT);
     //计算标题实际frame大小，并将label的frame变成实际大小
@@ -62,17 +67,28 @@
     if ([_fishLocationCommentInfo[@"content"] isEqualToString:@""]||_fishLocationCommentInfo[@"content"]==nil) {
         textSize.height=0;
     }
-    CGRect textFrame = content_lbl.frame;
-    textFrame.size.height = textSize.height;
-    [content_lbl setFrame:textFrame];
+    for (NSLayoutConstraint *constraint in content_lbl.constraints) {
+        if (constraint.firstItem==content_lbl&&constraint.firstAttribute==NSLayoutAttributeHeight) {
+            constraint.constant = textSize.height;
+        }
+    }
+    [content_lbl showDebug];
     
     CGRect tableHeaderBottomViewFrame = tableHeaderBottom_view.frame;
+    
+    //清空原始数据
+    for (id view in [tableHeader_view subviews]) {
+        if ([view isKindOfClass:[UIImageView class]]&&[view tag]==1) {
+            [view removeFromSuperview];
+        }
+    }
     
     //加载帖子图片
     NSArray *images = _fishLocationCommentInfo[@"images"];
     float imageWidth = (SCREEN_WIDTH-16-6)/3;
     for (int i=0; i<images.count; i++) {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(8+i*(imageWidth+2), content_lbl.origin.y+content_lbl.height+2+(imageWidth+2)*(i/3), imageWidth, imageWidth)];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(8+(i%3)*(imageWidth+2), content_lbl.origin.y+content_lbl.height+2+(imageWidth+2)*(i/3), imageWidth, imageWidth)];
+        [imageView setTag:1];
         NSString *imageUrl = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)images[i], nil, nil, kCFStringEncodingUTF8));
         UIImage *image = [UIImage imageNamed:@"testJPG"];
         [imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:image completed:^(UIImage *image,NSError *error,SDImageCacheType cacheType, NSURL *imageURL){
@@ -86,7 +102,7 @@
     CGRect tableHeaderViewFrame = tableHeader_view.frame;
     tableHeaderViewFrame.size.height=tableHeaderBottomViewFrame.origin.y+tableHeaderBottomViewFrame.size.height;
     [tableHeader_view setFrame:tableHeaderViewFrame];
-    
+    [_tableView setTableHeaderView:tableHeader_view];
     [_tableView reloadData];
 }
 

@@ -1,13 +1,42 @@
 PODS:
+  - AFNetworking (2.6.3):
+    - AFNetworking/NSURLConnection (= 2.6.3)
+    - AFNetworking/NSURLSession (= 2.6.3)
+    - AFNetworking/Reachability (= 2.6.3)
+    - AFNetworking/Security (= 2.6.3)
+    - AFNetworking/Serialization (= 2.6.3)
+    - AFNetworking/UIKit (= 2.6.3)
+  - AFNetworking/NSURLConnection (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.6.3)
+  - AFNetworking/Security (2.6.3)
+  - AFNetworking/Serialization (2.6.3)
+  - AFNetworking/UIKit (2.6.3):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
   - AMap2DMap (3.1.0)
+  - HappyDNS (0.2.3)
+  - Qiniu (7.0.15):
+    - AFNetworking (~> 2.0)
+    - HappyDNS (~> 0.2)
   - RongCloudIMKit (2.3.5)
 
 DEPENDENCIES:
   - AMap2DMap
+  - Qiniu (~> 7.0)
   - RongCloudIMKit
 
 SPEC CHECKSUMS:
+  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   AMap2DMap: a6741139dd16d237713c4fd6cae9a0399ca1fe25
+  HappyDNS: 6d85942e64c28b4fa61f8c76580398f52d6d1d11
+  Qiniu: ade34d722c8ce0eed7080fd268249e8402a2f535
   RongCloudIMKit: 920b35a7e80b4593bfb3a1c5121bf03c7e1fbf72
 
 COCOAPODS: 0.39.0
