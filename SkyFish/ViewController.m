@@ -8,13 +8,11 @@
 
 #import "ViewController.h"
 #import "LeftMenuViewController.h"
-#import "FishLocationViewController.h"
-#import "SNServicesViewController.h"
 #import "ChatRecentViewController.h"
 
 @interface ViewController (){
     
-    UINavigationController *fishLocationNAV,*SNSNav,*chatRecentNAV;
+    UINavigationController *fishLocationNAV,*SNSNav,*chatRecentNAV,*myInfoNav;
 }
 @property (weak, nonatomic) IBOutlet UIView *baseView;
 
@@ -74,8 +72,8 @@ static ViewController *instance;
             if (fishLocationNAV==nil) {
                 fishLocationNAV = [story instantiateViewControllerWithIdentifier:@"FishLocationNAVViewController"];
                 [self addChildViewController:fishLocationNAV];
-                [self.baseView addSubview:fishLocationNAV.view];
             }
+            [self.baseView addSubview:fishLocationNAV.view];
             break;
         }
         case 1:{
@@ -83,8 +81,8 @@ static ViewController *instance;
             if (SNSNav==nil) {
                 SNSNav = [story instantiateViewControllerWithIdentifier:@"SNSNavViewController"];
                 [self addChildViewController:SNSNav];
-                [self.baseView addSubview:SNSNav.view];
             }
+            [self.baseView addSubview:SNSNav.view];
             break;
         }
         case 2:{
@@ -93,8 +91,17 @@ static ViewController *instance;
                 ChatRecentViewController *CRVC = [[ChatRecentViewController alloc] initWithDisplayConversationTypes:@[@(ConversationType_PRIVATE)] collectionConversationType:nil];
                 chatRecentNAV = [[UINavigationController alloc] initWithRootViewController:CRVC];
                 [self addChildViewController:chatRecentNAV];
-                [self.baseView addSubview:chatRecentNAV.view];
             }
+            [self.baseView addSubview:chatRecentNAV.view];
+            break;
+        }
+        case 3:{
+            NSLog(@"进入个人");
+            if (myInfoNav==nil) {
+                myInfoNav = [story instantiateViewControllerWithIdentifier:@"MyInfoNavViewController"];
+                [self addChildViewController:myInfoNav];
+            }
+            [self.baseView addSubview:myInfoNav.view];
             break;
         }
         default:

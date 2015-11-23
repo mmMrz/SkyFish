@@ -17,9 +17,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self.navigationController loadTheme];
+    [self.navigationItem addTitleViewWithTitle:@"消息"];
+    [self.navigationItem addLeftBarButtonItem:[UIBarButtonItem themedLeftMenuButtonWithTarget:self andSelector:@selector(showLeftMenu:)]];
+    
     UIView *view = [UIView new];
     view.backgroundColor = [UIColor clearColor];
     [self.conversationListTableView setTableFooterView:view];
+}
+
+- (void)showLeftMenu:(id)sender
+{
+    [self.baseController showHideLeftMenu];
 }
 
 - (void)didReceiveMemoryWarning {

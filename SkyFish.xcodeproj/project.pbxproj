@@ -123,6 +123,9 @@
 		04E0EE191BD642E8009E2596 /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E0EE181BD642E8009E2596 /* LeftMenuViewController.m */; settings = {ASSET_TAGS = (); }; };
 		04E0EE1D1BD647D1009E2596 /* FishLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E0EE1C1BD647D1009E2596 /* FishLocationViewController.m */; settings = {ASSET_TAGS = (); }; };
 		04F78CE71C020ECA00BEC219 /* NSURL+Parameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F78CE61C020ECA00BEC219 /* NSURL+Parameter.m */; settings = {ASSET_TAGS = (); }; };
+		04F78CEA1C022AB700BEC219 /* PersonPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F78CE91C022AB700BEC219 /* PersonPage.m */; settings = {ASSET_TAGS = (); }; };
+		04F78CED1C029E1800BEC219 /* MyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F78CEC1C029E1800BEC219 /* MyInfoViewController.m */; settings = {ASSET_TAGS = (); }; };
+		04F78CF31C02A3D100BEC219 /* MyWeiboCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F78CF21C02A3D100BEC219 /* MyWeiboCell.m */; settings = {ASSET_TAGS = (); }; };
 		04FA57E51BF038B30006F2DD /* FishLocationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FA57E41BF038B30006F2DD /* FishLocationDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
 		04FA57E81BF09C5D0006F2DD /* FishLocationCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FA57E71BF09C5D0006F2DD /* FishLocationCommentViewController.m */; settings = {ASSET_TAGS = (); }; };
 		04FA57EB1BF09C690006F2DD /* FishLocationCommentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FA57EA1BF09C690006F2DD /* FishLocationCommentDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -341,6 +344,12 @@
 		04E0EE1C1BD647D1009E2596 /* FishLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FishLocationViewController.m; sourceTree = "<group>"; };
 		04F78CE51C020ECA00BEC219 /* NSURL+Parameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+Parameter.h"; sourceTree = "<group>"; };
 		04F78CE61C020ECA00BEC219 /* NSURL+Parameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+Parameter.m"; sourceTree = "<group>"; };
+		04F78CE81C022AB700BEC219 /* PersonPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonPage.h; sourceTree = "<group>"; };
+		04F78CE91C022AB700BEC219 /* PersonPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonPage.m; sourceTree = "<group>"; };
+		04F78CEB1C029E1800BEC219 /* MyInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyInfoViewController.h; sourceTree = "<group>"; };
+		04F78CEC1C029E1800BEC219 /* MyInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyInfoViewController.m; sourceTree = "<group>"; };
+		04F78CF11C02A3D100BEC219 /* MyWeiboCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWeiboCell.h; sourceTree = "<group>"; };
+		04F78CF21C02A3D100BEC219 /* MyWeiboCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWeiboCell.m; sourceTree = "<group>"; };
 		04FA57E31BF038B30006F2DD /* FishLocationDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FishLocationDetailViewController.h; sourceTree = "<group>"; };
 		04FA57E41BF038B30006F2DD /* FishLocationDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FishLocationDetailViewController.m; sourceTree = "<group>"; };
 		04FA57E61BF09C5D0006F2DD /* FishLocationCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FishLocationCommentViewController.h; sourceTree = "<group>"; };
@@ -663,6 +672,12 @@
 		04A14C8A1BDDC088002D8452 /* 个人 */ = {
 			isa = PBXGroup;
 			children = (
+				04F78CE81C022AB700BEC219 /* PersonPage.h */,
+				04F78CE91C022AB700BEC219 /* PersonPage.m */,
+				04F78CEB1C029E1800BEC219 /* MyInfoViewController.h */,
+				04F78CEC1C029E1800BEC219 /* MyInfoViewController.m */,
+				04F78CF11C02A3D100BEC219 /* MyWeiboCell.h */,
+				04F78CF21C02A3D100BEC219 /* MyWeiboCell.m */,
 			);
 			name = "个人";
 			sourceTree = "<group>";
@@ -779,6 +794,9 @@
 		04E0EDFA1BD5F91D009E2596 /* SkyFish */ = {
 			isa = PBXGroup;
 			children = (
+				04E0EE071BD5F91D009E2596 /* Assets.xcassets */,
+				04E0EE091BD5F91D009E2596 /* LaunchScreen.storyboard */,
+				04E0EE041BD5F91D009E2596 /* Main.storyboard */,
 				04E0EDFE1BD5F91D009E2596 /* AppDelegate.h */,
 				04E0EDFF1BD5F91D009E2596 /* AppDelegate.m */,
 				04A14C911BDDC96E002D8452 /* 登录注册 */,
@@ -791,11 +809,8 @@
 				041286CB1BD79F1D0032411F /* Customize */,
 				04E0EE161BD6422E009E2596 /* 3rdPart */,
 				045290001BD7A26200D2734A /* FrameWork */,
-				04E0EE041BD5F91D009E2596 /* Main.storyboard */,
-				04E0EE071BD5F91D009E2596 /* Assets.xcassets */,
-				04E0EE0C1BD5F91D009E2596 /* Info.plist */,
-				04E0EE091BD5F91D009E2596 /* LaunchScreen.storyboard */,
 				04E0EDFB1BD5F91D009E2596 /* Supporting Files */,
+				04E0EE0C1BD5F91D009E2596 /* Info.plist */,
 			);
 			path = SkyFish;
 			sourceTree = "<group>";
@@ -1003,6 +1018,7 @@
 				0424D9BD1BE3758000BA67E6 /* NSDate+Formatter.m in Sources */,
 				040890231BDE300200E69790 /* NSData+ImageContentType.m in Sources */,
 				041287141BD79F1D0032411F /* NSString+Addition.m in Sources */,
+				04F78CEA1C022AB700BEC219 /* PersonPage.m in Sources */,
 				04AC75991BDA12CA00415ACF /* SNServicesTableViewController.m in Sources */,
 				0412871A1BD79F1D0032411F /* UINavigationBar+Theme.m in Sources */,
 				04E0EE1D1BD647D1009E2596 /* FishLocationViewController.m in Sources */,
@@ -1018,6 +1034,7 @@
 				0412872D1BD7A0E40032411F /* KeychainItemWrapper.m in Sources */,
 				04CC108C1BF2F73E00E12DB0 /* AddCommentForFishLocationViewController.m in Sources */,
 				0412870E1BD79F1D0032411F /* DeviceInfo.m in Sources */,
+				04F78CED1C029E1800BEC219 /* MyInfoViewController.m in Sources */,
 				04CC10BB1BF3443100E12DB0 /* DNAlbumTableViewController.m in Sources */,
 				0408902F1BDE300200E69790 /* UIImageView+HighlightedWebCache.m in Sources */,
 				040890291BDE300200E69790 /* SDWebImageManager.m in Sources */,
@@ -1040,6 +1057,7 @@
 				04AC75951BDA06BB00415ACF /* UIViewController+BaseController.m in Sources */,
 				045290061BD7A55400D2734A /* SegmentView.m in Sources */,
 				041287111BD79F1D0032411F /* UserSettingInfo.m in Sources */,
+				04F78CF31C02A3D100BEC219 /* MyWeiboCell.m in Sources */,
 				0412871C1BD79F1D0032411F /* UINavigationItem+CorrectOffset.m in Sources */,
 				04CC10D21BF4422800E12DB0 /* UIImage+Size.m in Sources */,
 				041287161BD79F1D0032411F /* UIBarButtonItem+Theme.m in Sources */,

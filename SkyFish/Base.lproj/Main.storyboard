@@ -97,6 +97,521 @@
             </objects>
             <point key="canvasLocation" x="-492" y="1051"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="g8c-AE-N01">
+            <objects>
+                <navigationController storyboardIdentifier="MyInfoNavViewController" id="IpN-Cz-aus" sceneMemberID="viewController">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="byn-in-nXT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Kkh-Vx-zZR" kind="relationship" relationship="rootViewController" id="ZBt-uR-JOL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eHv-XY-lka" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-96" y="1051"/>
+        </scene>
+        <!--My Info View Controller-->
+        <scene sceneID="NTB-9d-eO9">
+            <objects>
+                <viewController id="Kkh-Vx-zZR" customClass="MyInfoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MIo-IY-a2F"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hqo-ew-N8u"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4s1-hb-NGh">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4hr-oE-mV5">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="134"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="未登录头像" translatesAutoresizingMaskIntoConstraints="NO" id="Xdt-CN-uvp">
+                                        <rect key="frame" x="8" y="21" width="59" height="59"/>
+                                        <animations/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="26"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="未登录，点击登录" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ccU-eQ-Y8a">
+                                        <rect key="frame" x="76" y="49" width="169" height="21"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="张燕枭" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Coi-CT-nTn">
+                                        <rect key="frame" x="76" y="25" width="130" height="21"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="热闹" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yV-PA-zRG">
+                                        <rect key="frame" x="34" y="98" width="42" height="21"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2947" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axq-0Z-NBW">
+                                        <rect key="frame" x="34" y="112" width="42" height="21"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="关注" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0lG-Bs-fay">
+                                        <rect key="frame" x="139" y="98" width="42" height="21"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2947" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FuJ-pg-gey">
+                                        <rect key="frame" x="139" y="112" width="42" height="21"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="粉丝" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DVH-Ro-23y">
+                                        <rect key="frame" x="248" y="98" width="42" height="21"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2947" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6v-Ar-LS3">
+                                        <rect key="frame" x="248" y="112" width="42" height="21"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ikb-5i-yPx">
+                                        <rect key="frame" x="0.0" y="91.5" width="320" height="0.5"/>
+                                        <animations/>
+                                        <color key="backgroundColor" red="0.72949389180000002" green="0.72949389180000002" blue="0.72949389180000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GYM-b6-3lC">
+                                        <rect key="frame" x="107" y="92" width="0.5" height="42"/>
+                                        <animations/>
+                                        <color key="backgroundColor" red="0.72949389180000002" green="0.72949389180000002" blue="0.72949389180000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PV7-1M-5XL">
+                                        <rect key="frame" x="213" y="91" width="0.5" height="42"/>
+                                        <animations/>
+                                        <color key="backgroundColor" red="0.72949389180000002" green="0.72949389180000002" blue="0.72949389180000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Push箭头" translatesAutoresizingMaskIntoConstraints="NO" id="agt-Ot-pn5">
+                                        <rect key="frame" x="304" y="35" width="8" height="14"/>
+                                        <animations/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aSQ-W1-hqU">
+                                        <rect key="frame" x="213" y="0.0" width="107" height="92"/>
+                                        <animations/>
+                                        <connections>
+                                            <action selector="toMyPage:" destination="Kkh-Vx-zZR" eventType="touchUpInside" id="5ks-EE-bdh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ADw-3M-ISs">
+                                        <rect key="frame" x="0.0" y="91" width="107" height="43"/>
+                                        <animations/>
+                                        <connections>
+                                            <action selector="toMyWeibo:" destination="Kkh-Vx-zZR" eventType="touchUpInside" id="031-aZ-Biz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZwU-w9-LQu">
+                                        <rect key="frame" x="107" y="92" width="107" height="43"/>
+                                        <animations/>
+                                        <connections>
+                                            <action selector="toMyAttention:" destination="Kkh-Vx-zZR" eventType="touchUpInside" id="lq1-f4-hxw"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmW-x9-Qe4">
+                                        <rect key="frame" x="213" y="92" width="107" height="43"/>
+                                        <animations/>
+                                    </button>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J6y-vi-EN5">
+                                <rect key="frame" x="0.0" y="149" width="320" height="70"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A87-9F-ENP">
+                                        <rect key="frame" x="0.0" y="35" width="320" height="0.5"/>
+                                        <animations/>
+                                        <color key="backgroundColor" red="0.72949389180000002" green="0.72949389180000002" blue="0.72949389180000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="我的评价" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lpL-m9-weC">
+                                        <rect key="frame" x="36" y="11" width="222" height="13"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="0.41960487569999999" green="0.41960487569999999" blue="0.41960487569999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="我的评价" translatesAutoresizingMaskIntoConstraints="NO" id="bZh-Xt-D8R">
+                                        <rect key="frame" x="8" y="8" width="20" height="20"/>
+                                        <animations/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="我的收藏" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N9E-dw-Cgq">
+                                        <rect key="frame" x="36" y="46" width="229" height="13"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="0.41960487569999999" green="0.41960487569999999" blue="0.41960487569999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="我的收藏" translatesAutoresizingMaskIntoConstraints="NO" id="7rN-Wf-aY6">
+                                        <rect key="frame" x="8" y="43" width="20" height="20"/>
+                                        <animations/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Push箭头" translatesAutoresizingMaskIntoConstraints="NO" id="XCb-8E-sO6">
+                                        <rect key="frame" x="304" y="11" width="8" height="14"/>
+                                        <animations/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Push箭头" translatesAutoresizingMaskIntoConstraints="NO" id="9Dh-m9-ur1">
+                                        <rect key="frame" x="304" y="46" width="8" height="14"/>
+                                        <animations/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="82Y-lV-2c7">
+                                        <rect key="frame" x="92" y="0.0" width="228" height="35"/>
+                                        <animations/>
+                                        <connections>
+                                            <action selector="toMyComment:" destination="Kkh-Vx-zZR" eventType="touchUpInside" id="yGl-tO-7nv"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBg-Vp-ZSw">
+                                        <rect key="frame" x="92" y="35" width="228" height="35"/>
+                                        <animations/>
+                                        <connections>
+                                            <action selector="toMyFavorite:" destination="Kkh-Vx-zZR" eventType="touchUpInside" id="qGl-8f-KI2"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4SH-fa-F2Y">
+                                <rect key="frame" x="0.0" y="235" width="320" height="70"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D29-NY-809">
+                                        <rect key="frame" x="0.0" y="35" width="320" height="0.5"/>
+                                        <animations/>
+                                        <color key="backgroundColor" red="0.72949389180000002" green="0.72949389180000002" blue="0.72949389180000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="设置" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xUf-JB-RUB">
+                                        <rect key="frame" x="36" y="11" width="222" height="13"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="0.41960487569999999" green="0.41960487569999999" blue="0.41960487569999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="设置" translatesAutoresizingMaskIntoConstraints="NO" id="8KG-JX-NUx">
+                                        <rect key="frame" x="8" y="8" width="20" height="20"/>
+                                        <animations/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="关于空钩" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1CG-hR-Qto">
+                                        <rect key="frame" x="36" y="46" width="229" height="13"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="0.41960487569999999" green="0.41960487569999999" blue="0.41960487569999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="关于空钩" translatesAutoresizingMaskIntoConstraints="NO" id="IaG-QJ-veP">
+                                        <rect key="frame" x="8" y="43" width="20" height="20"/>
+                                        <animations/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Push箭头" translatesAutoresizingMaskIntoConstraints="NO" id="dQS-HR-7t3">
+                                        <rect key="frame" x="304" y="11" width="8" height="14"/>
+                                        <animations/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dF9-2h-E4q">
+                                        <rect key="frame" x="65" y="0.0" width="255" height="35"/>
+                                        <animations/>
+                                        <connections>
+                                            <action selector="toSetting:" destination="Kkh-Vx-zZR" eventType="touchUpInside" id="F11-HV-M9p"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1.1.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ziJ-Yq-4VB">
+                                        <rect key="frame" x="237" y="46" width="75" height="13"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="0.41960487569999999" green="0.41960487569999999" blue="0.41960487569999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" red="0.94563972510000005" green="0.94563972510000005" blue="0.94563972510000005" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="9EK-I8-hyZ"/>
+                    <connections>
+                        <outlet property="attentionCount" destination="FuJ-pg-gey" id="5Du-7F-2aZ"/>
+                        <outlet property="fansCount" destination="h6v-Ar-LS3" id="1mT-gS-eUs"/>
+                        <outlet property="headView" destination="Xdt-CN-uvp" id="frh-8D-Omx"/>
+                        <outlet property="nameLbl" destination="Coi-CT-nTn" id="To3-4i-vNj"/>
+                        <outlet property="signLbl" destination="ccU-eQ-Y8a" id="eiE-ji-FfB"/>
+                        <outlet property="versionLbl" destination="ziJ-Yq-4VB" id="auP-Bw-1LQ"/>
+                        <outlet property="weiboCount" destination="axq-0Z-NBW" id="jZl-WX-P2z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R32-qK-Vrm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="302" y="1051"/>
+        </scene>
+        <!--Person Page-->
+        <scene sceneID="lZ2-bl-yhA">
+            <objects>
+                <viewController id="WdT-UK-dcM" customClass="PersonPage" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="M3z-Zg-odb"/>
+                        <viewControllerLayoutGuide type="bottom" id="Jxo-K6-87d"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZiK-al-GS9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mtt-J6-Nui">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="xSB-dm-WW5">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="384"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="背景图片" translatesAutoresizingMaskIntoConstraints="NO" id="kEA-R0-fGo">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="235"/>
+                                            <animations/>
+                                            <color key="backgroundColor" red="0.086274509799999996" green="0.68627450980000004" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="未登录头像" translatesAutoresizingMaskIntoConstraints="NO" id="fY4-Jx-hyU">
+                                            <rect key="frame" x="130" y="81" width="59" height="59"/>
+                                            <animations/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="26"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="张燕枭" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="78N-Lw-ZbZ">
+                                            <rect key="frame" x="95" y="143" width="130" height="21"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QGJ-Rf-RLl">
+                                            <rect key="frame" x="0.0" y="185" width="320" height="50"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="热闹" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K1Y-zv-zPZ">
+                                                    <rect key="frame" x="32" y="5" width="42" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2947" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FEN-1h-0PZ">
+                                                    <rect key="frame" x="32" y="24" width="42" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="关注" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6zK-jT-Jjb">
+                                                    <rect key="frame" x="139" y="5" width="42" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2947" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0nk-ud-nu5">
+                                                    <rect key="frame" x="139" y="24" width="42" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="粉丝" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Pj-NJ-bqR">
+                                                    <rect key="frame" x="242" y="5" width="42" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2947" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qx-A8-8hK">
+                                                    <rect key="frame" x="242" y="24" width="42" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DPA-Bf-WNb">
+                                            <rect key="frame" x="65" y="383.5" width="245" height="0.5"/>
+                                            <animations/>
+                                            <color key="backgroundColor" red="0.72949389180000002" green="0.72949389180000002" blue="0.72949389180000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </view>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="个人资料" translatesAutoresizingMaskIntoConstraints="NO" id="mij-uk-yGe">
+                                            <rect key="frame" x="12" y="251" width="20" height="20"/>
+                                            <animations/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="个人资料" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmM-Se-ho2">
+                                            <rect key="frame" x="35" y="254" width="229" height="13"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="地区" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZU-gd-szU">
+                                            <rect key="frame" x="35" y="278" width="30" height="13"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="钓龄" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t1v-HW-pqQ">
+                                            <rect key="frame" x="35" y="305" width="30" height="13"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="擅长" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRm-1c-c4u">
+                                            <rect key="frame" x="35" y="331" width="30" height="13"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="签名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K4t-pG-Oiv">
+                                            <rect key="frame" x="35" y="356" width="30" height="13"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="重庆市 江北区" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AIJ-bo-4aN">
+                                            <rect key="frame" x="73" y="278" width="200" height="13"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3年" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qw3-Yj-IjW">
+                                            <rect key="frame" x="73" y="305" width="200" height="13"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="高级钓竿" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scr-KZ-agB">
+                                            <rect key="frame" x="73" y="331" width="200" height="13"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="泥沼王MEGA进化！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLa-Q6-XOP">
+                                            <rect key="frame" x="73" y="356" width="200" height="13"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <animations/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="C7X-uw-ex7" customClass="MyWeiboCell">
+                                        <rect key="frame" x="0.0" y="412" width="320" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="C7X-uw-ex7" id="1ne-VQ-naj">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="testJPG" translatesAutoresizingMaskIntoConstraints="NO" id="lJg-A3-exf">
+                                                    <rect key="frame" x="27" y="10" width="60" height="60"/>
+                                                    <animations/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jov-zu-56z">
+                                                    <rect key="frame" x="95" y="8" width="217" height="47"/>
+                                                    <animations/>
+                                                    <string key="text">我来解释一下超级钓竿的钓鱼技巧:
+每当主人公头上出现一个"!"时,按A键一次,注意,不要多按,不然试1万次也
+钓不上一条鱼.当"!"出现几次,就按几次A键,这样钓鱼的几率十拿九稳.</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="重庆  09月12日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMh-m2-hjE">
+                                                    <rect key="frame" x="95" y="59" width="97" height="11"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="评论（列表中）" translatesAutoresizingMaskIntoConstraints="NO" id="gvQ-9D-Lem">
+                                                    <rect key="frame" x="258" y="57" width="16" height="16"/>
+                                                    <animations/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AT4-aS-gLz">
+                                                    <rect key="frame" x="278" y="51" width="34" height="28"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" red="0.45456342709999997" green="0.45456342709999997" blue="0.45456342709999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                        <connections>
+                                            <outlet property="commentCountLbl" destination="AT4-aS-gLz" id="X5l-y9-E5M"/>
+                                            <outlet property="contentLbl" destination="jov-zu-56z" id="hgt-75-dJF"/>
+                                            <outlet property="headView" destination="lJg-A3-exf" id="YkB-rr-2V3"/>
+                                            <outlet property="locationAndDateLbl" destination="eMh-m2-hjE" id="63k-l0-NMp"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="_tableView" destination="Mtt-J6-Nui" id="gjE-8M-ClX"/>
+                        <outlet property="addressLbl" destination="AIJ-bo-4aN" id="NVo-So-pHm"/>
+                        <outlet property="attentionCount" destination="0nk-ud-nu5" id="IZk-Fs-TuE"/>
+                        <outlet property="fansCount" destination="7qx-A8-8hK" id="oIk-s2-u0t"/>
+                        <outlet property="fishAgeLbl" destination="qw3-Yj-IjW" id="kQx-c5-ohx"/>
+                        <outlet property="headView" destination="fY4-Jx-hyU" id="P50-qb-gHO"/>
+                        <outlet property="nameLbl" destination="78N-Lw-ZbZ" id="ekF-rh-Weh"/>
+                        <outlet property="signLbl" destination="fLa-Q6-XOP" id="Qnc-Rx-vfg"/>
+                        <outlet property="skillLbl" destination="scr-KZ-agB" id="JfW-Y0-UOo"/>
+                        <outlet property="weiboCount" destination="FEN-1h-0PZ" id="Ihm-et-6fb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ITh-UH-y8L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="688" y="1051"/>
+        </scene>
         <!--Dynamic Detail View Controller-->
         <scene sceneID="Zh5-3F-ish">
             <objects>
@@ -622,7 +1137,7 @@
                                         <rect key="frame" x="0.0" y="304" width="320" height="70"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SUm-h8-fr8">
-                                                <rect key="frame" x="0.0" y="35" width="320" height="1"/>
+                                                <rect key="frame" x="0.0" y="35" width="320" height="0.5"/>
                                                 <animations/>
                                                 <color key="backgroundColor" red="0.72949389180000002" green="0.72949389180000002" blue="0.72949389180000002" alpha="1" colorSpace="calibratedRGB"/>
                                             </view>
@@ -690,7 +1205,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Push箭头" translatesAutoresizingMaskIntoConstraints="NO" id="NIg-6f-yET">
-                                                <rect key="frame" x="304" y="10" width="8" height="15"/>
+                                                <rect key="frame" x="304" y="11" width="8" height="14"/>
                                                 <animations/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BPv-gh-Hf2">
@@ -708,7 +1223,7 @@
                                         <rect key="frame" x="0.0" y="425" width="320" height="175"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JuH-Dz-Ufp">
-                                                <rect key="frame" x="0.0" y="35" width="320" height="1"/>
+                                                <rect key="frame" x="0.0" y="35" width="320" height="0.5"/>
                                                 <animations/>
                                                 <color key="backgroundColor" red="0.72949389180000002" green="0.72949389180000002" blue="0.72949389180000002" alpha="1" colorSpace="calibratedRGB"/>
                                             </view>
@@ -742,7 +1257,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cCg-nJ-cm7">
-                                                <rect key="frame" x="0.0" y="70" width="320" height="1"/>
+                                                <rect key="frame" x="0.0" y="70" width="320" height="0.5"/>
                                                 <animations/>
                                                 <color key="backgroundColor" red="0.72949389180000002" green="0.72949389180000002" blue="0.72949389180000002" alpha="1" colorSpace="calibratedRGB"/>
                                             </view>
@@ -758,7 +1273,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xZ4-Ej-tGf">
-                                                <rect key="frame" x="0.0" y="105" width="320" height="1"/>
+                                                <rect key="frame" x="0.0" y="105" width="320" height="0.5"/>
                                                 <animations/>
                                                 <color key="backgroundColor" red="0.72949389180000002" green="0.72949389180000002" blue="0.72949389180000002" alpha="1" colorSpace="calibratedRGB"/>
                                             </view>
@@ -774,7 +1289,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w1a-QQ-UOS">
-                                                <rect key="frame" x="0.0" y="140" width="320" height="1"/>
+                                                <rect key="frame" x="0.0" y="140" width="320" height="0.5"/>
                                                 <animations/>
                                                 <color key="backgroundColor" red="0.72949389180000002" green="0.72949389180000002" blue="0.72949389180000002" alpha="1" colorSpace="calibratedRGB"/>
                                             </view>
@@ -794,7 +1309,7 @@
                                         <rect key="frame" x="0.0" y="608" width="320" height="70"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zt4-qU-ahw">
-                                                <rect key="frame" x="0.0" y="35" width="320" height="1"/>
+                                                <rect key="frame" x="0.0" y="35" width="320" height="0.5"/>
                                                 <animations/>
                                                 <color key="backgroundColor" red="0.72949389180000002" green="0.72949389180000002" blue="0.72949389180000002" alpha="1" colorSpace="calibratedRGB"/>
                                             </view>
@@ -824,7 +1339,7 @@
                                         <rect key="frame" x="0.0" y="686" width="320" height="70"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z95-6F-6Es">
-                                                <rect key="frame" x="0.0" y="35" width="320" height="1"/>
+                                                <rect key="frame" x="0.0" y="35" width="320" height="0.5"/>
                                                 <animations/>
                                                 <color key="backgroundColor" red="0.72949389180000002" green="0.72949389180000002" blue="0.72949389180000002" alpha="1" colorSpace="calibratedRGB"/>
                                             </view>
@@ -1927,10 +2442,16 @@
     <resources>
         <image name="Push箭头" width="11" height="21"/>
         <image name="testJPG" width="375" height="500"/>
+        <image name="个人资料" width="64" height="64"/>
         <image name="免费钓点" width="32" height="32"/>
+        <image name="关于空钩" width="64" height="64"/>
         <image name="我的位置1" width="32" height="32"/>
+        <image name="我的收藏" width="64" height="64"/>
+        <image name="我的评价" width="64" height="64"/>
         <image name="未登录头像" width="192" height="192"/>
         <image name="添加图片" width="192" height="192"/>
+        <image name="背景图片" width="1080" height="792"/>
+        <image name="设置" width="64" height="64"/>
         <image name="评价（亮）" width="64" height="64"/>
         <image name="评价（暗）" width="64" height="64"/>
         <image name="评论（列表中）" width="64" height="64"/>

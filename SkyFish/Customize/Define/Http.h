@@ -15,6 +15,8 @@
 //用户
 #define USER_LOGIN @"/user/login/"//用户登录
 #define USER_UPDATEADDR @"/user/updateAddr" //位置更新
+#define USER_GETMYINFO @"/user/getmyinfo" //获取本人信息
+#define USER_GETUSERINFO @"/user/getUserinfo" //获取用户信息
 
 //钓点
 #define PLACE_GETPLACE @"/place/getPlace"//获取钓点列表
@@ -28,7 +30,8 @@
 #define WEIBO_GETLISTGROUND @"/weibo/getListGround/"//取微博列表_广场
 #define WEIBO_GETLISTNEAR @"/weibo/getListNear/"//取微博列表_附近
 #define WEIBO_GETLISTFRIEND @"/weibo/getListFriend/"//取微博列表_朋友
-#define WEIBO_GETITEM @"weibo/getItem/"//取微博_详情
+#define WEIBO_GETITEM @"/weibo/getItem/"//取微博_详情
+#define WEIBO_GETLIST @"/weibo/getList/"//取微博列表_某用户
 
 //通用
 #define COMMON_QINIUTOKEN @"/common/qiniuToken"//获取七牛token
