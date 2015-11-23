@@ -22,9 +22,9 @@
 @property (nonatomic, strong) NSString *skill;
 @property (nonatomic, strong) NSString *age;
 @property (nonatomic, strong) NSString *adress;
-@property (nonatomic, strong) NSString *blogCount;
-@property (nonatomic, strong) NSString *attentionCount;
-@property (nonatomic, strong) NSString *fansCount;
+@property (nonatomic, strong) NSNumber *blogCount;
+@property (nonatomic, strong) NSString *cared;
+@property (nonatomic, strong) NSString *fans;
 @property (nonatomic, strong) NSString *rongToken;
 @property (nonatomic, strong) NSString *token;//登录后返回
 @property (nonatomic, strong) NSString *qiniuToken;

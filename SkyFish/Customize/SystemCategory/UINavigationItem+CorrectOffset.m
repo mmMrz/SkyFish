@@ -70,7 +70,7 @@
     [titleView setBackgroundColor:[UIColor clearColor]];
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:titleView.bounds];
     [titleLabel setBackgroundColor:[UIColor clearColor]];
-    [titleLabel setFont:[UIFont systemFontOfSize:19.0]];
+    [titleLabel setFont:[UIFont systemFontOfSize:16.0]];
     [titleLabel setTextColor:[UIColor whiteColor]];
     [titleLabel setTextAlignment:NSTextAlignmentLeft];
     [titleLabel setText:title];

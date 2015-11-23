@@ -36,7 +36,7 @@
         UIRemoteNotificationTypeSound;
         [application registerForRemoteNotificationTypes:myTypes];
     }
-    
+    application.statusBarStyle = UIStatusBarStyleLightContent;
     return YES;
 }
 

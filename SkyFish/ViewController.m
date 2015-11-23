@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "LeftMenuViewController.h"
 #import "ChatRecentViewController.h"
+#import "LoginViewController.h"
 
 @interface ViewController (){
     
@@ -37,7 +38,17 @@ static ViewController *instance;
     [self.leftMenuVC setBaseController:self];
     [self.leftMenuVC setDelegate:self];
     [self.view addSubview:self.leftMenuVC.view];
-    self.leftMenuVC.view.frame  = self.view.bounds; 
+    self.leftMenuVC.view.frame  = self.view.bounds;
+    
+    [self autoLogin];
+}
+
+//test
+- (void)autoLogin
+{
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    LoginViewController *loginVC = [story instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    [self.baseController presentViewController:loginVC animated:NO completion:nil];
 }
 
 + (ViewController*)sharedInstance

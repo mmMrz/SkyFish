@@ -44,28 +44,36 @@
     if ([dynamicInfo[@"content"] isEqualToString:@""]||dynamicInfo[@"content"]==nil) {
         textSize.height=0;
     }
-    CGRect textFrame = _content_lbl.frame;
-    textFrame.size.height = textSize.height;
-    [_content_lbl setFrame:textFrame];
-    
-    CGRect _bottom_viewFrame = _bottom_view.frame;
+    for (NSLayoutConstraint *constraint in _content_lbl.constraints) {
+        if (constraint.firstItem==_content_lbl&&constraint.firstAttribute==NSLayoutAttributeHeight) {
+            constraint.constant = textSize.height;
+        }
+    }
     
     //加载帖子图片
     NSArray *images = dynamicInfo[@"images"];
     float imageWidth = (SCREEN_WIDTH-16-6)/3;
     for (int i=0; i<images.count; i++) {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(8+i*(imageWidth+2), _content_lbl.origin.y+_content_lbl.height+2+(imageWidth+2)*(i/3), imageWidth, imageWidth)];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0, imageWidth, imageWidth)];
         [imageView setTag:1];
         NSString *imageUrl = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)images[i], nil, nil, kCFStringEncodingUTF8));
         UIImage *image = [UIImage imageNamed:@"testJPG"];
         [imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:image completed:^(UIImage *image,NSError *error,SDImageCacheType cacheType, NSURL *imageURL){
-            
             [[GlobalData sharedInstance].currentUserInfo setAvatarImg:image];
         }];
         [self.contentView addSubview:imageView];
-        _bottom_viewFrame.origin.y = imageView.origin.y+imageView.height+2;
+        
+        imageView.translatesAutoresizingMaskIntoConstraints = NO;
+        NSArray *imageVConstraintAry = [NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:[contentLbl]-%f-[imageView(%f)]",2+(imageWidth+2)*(i/3),imageWidth] options:0 metrics:nil views:@{@"contentLbl":_content_lbl,@"imageView": imageView}];
+        NSArray *imageHConstraintAry = [NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:|-%f-[imageView(%f)]",8+(i%3)*(imageWidth+2),imageWidth] options:0 metrics:nil views:@{@"imageView": imageView}];
+        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0")) {
+            [NSLayoutConstraint activateConstraints:imageVConstraintAry];
+            [NSLayoutConstraint activateConstraints:imageHConstraintAry];
+        }else{
+            [imageView addConstraints:imageVConstraintAry];
+            [imageView addConstraints:imageHConstraintAry];
+        }
     }
-    [_bottom_view setFrame:_bottom_viewFrame];
     
 }
 

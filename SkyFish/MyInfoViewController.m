@@ -7,6 +7,7 @@
 //
 
 #import "MyInfoViewController.h"
+#import "PersonPage.h"
 
 @implementation MyInfoViewController{
     
@@ -18,6 +19,13 @@
     [self.navigationController loadTheme];
     [self.navigationItem addTitleViewWithTitle:@"个人"];
     [self.navigationItem addLeftBarButtonItem:[UIBarButtonItem themedLeftMenuButtonWithTarget:self andSelector:@selector(showLeftMenu:)]];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self setupView];
 }
 
 - (void)showLeftMenu:(id)sender
@@ -29,6 +37,9 @@
 {
     [signLbl setText:[GlobalData sharedInstance].currentUserInfo.sign];
     [nameLbl setText:[GlobalData sharedInstance].currentUserInfo.name];
+    [weiboCount setText:[[GlobalData sharedInstance].currentUserInfo.blogCount stringValue]];
+    [attentionCount setText:[GlobalData sharedInstance].currentUserInfo.cared];
+    [fansCount setText:[GlobalData sharedInstance].currentUserInfo.fans];
     
     NSString *imageUrl = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)[GlobalData sharedInstance].currentUserInfo.avatar, nil, nil, kCFStringEncodingUTF8));
     UIImage *image = [UIImage imageNamed:@"未登录头像"];
@@ -38,6 +49,10 @@
 }
 
 - (IBAction)toMyPage:(UIButton *)sender {
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    PersonPage *personPage = [story instantiateViewControllerWithIdentifier:@"PersonPage"];
+    [personPage setUid:[GlobalData sharedInstance].currentUserInfo.uid];
+    [self.navigationController pushViewController:personPage animated:YES];
 }
 
 - (IBAction)toMyWeibo:(UIButton *)sender {

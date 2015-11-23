@@ -24,7 +24,7 @@
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *buttonImage = [UIImage imageNamed:@"返回箭头"];
     [button setImage:buttonImage forState:UIControlStateNormal];
-    [button setFrame:CGRectMake(0, 0, buttonImage.size.width, buttonImage.size.height)];
+    [button setFrame:CGRectMake(0, 0, 20, 20)];
     [button addTarget:target action:selector forControlEvents:UIControlEventTouchUpInside];
     
     return [[UIBarButtonItem alloc] initWithCustomView:button];
@@ -85,7 +85,7 @@
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *buttonImage = [UIImage imageNamed:@"按钮_左侧菜单"];
     [button setImage:buttonImage forState:UIControlStateNormal];
-    [button setFrame:CGRectMake(0, 0, 30, 30)];
+    [button setFrame:CGRectMake(0, 0, 20, 20)];
     [button addTarget:target action:selector forControlEvents:UIControlEventTouchUpInside];
     return [[UIBarButtonItem alloc] initWithCustomView:button];
 }

@@ -126,6 +126,7 @@
 		04F78CEA1C022AB700BEC219 /* PersonPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F78CE91C022AB700BEC219 /* PersonPage.m */; settings = {ASSET_TAGS = (); }; };
 		04F78CED1C029E1800BEC219 /* MyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F78CEC1C029E1800BEC219 /* MyInfoViewController.m */; settings = {ASSET_TAGS = (); }; };
 		04F78CF31C02A3D100BEC219 /* MyWeiboCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F78CF21C02A3D100BEC219 /* MyWeiboCell.m */; settings = {ASSET_TAGS = (); }; };
+		04F78CF81C02F5B700BEC219 /* WordImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F78CF71C02F5B700BEC219 /* WordImageView.m */; settings = {ASSET_TAGS = (); }; };
 		04FA57E51BF038B30006F2DD /* FishLocationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FA57E41BF038B30006F2DD /* FishLocationDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
 		04FA57E81BF09C5D0006F2DD /* FishLocationCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FA57E71BF09C5D0006F2DD /* FishLocationCommentViewController.m */; settings = {ASSET_TAGS = (); }; };
 		04FA57EB1BF09C690006F2DD /* FishLocationCommentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FA57EA1BF09C690006F2DD /* FishLocationCommentDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -350,6 +351,8 @@
 		04F78CEC1C029E1800BEC219 /* MyInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyInfoViewController.m; sourceTree = "<group>"; };
 		04F78CF11C02A3D100BEC219 /* MyWeiboCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWeiboCell.h; sourceTree = "<group>"; };
 		04F78CF21C02A3D100BEC219 /* MyWeiboCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWeiboCell.m; sourceTree = "<group>"; };
+		04F78CF61C02F5B700BEC219 /* WordImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordImageView.h; sourceTree = "<group>"; };
+		04F78CF71C02F5B700BEC219 /* WordImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordImageView.m; sourceTree = "<group>"; };
 		04FA57E31BF038B30006F2DD /* FishLocationDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FishLocationDetailViewController.h; sourceTree = "<group>"; };
 		04FA57E41BF038B30006F2DD /* FishLocationDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FishLocationDetailViewController.m; sourceTree = "<group>"; };
 		04FA57E61BF09C5D0006F2DD /* FishLocationCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FishLocationCommentViewController.h; sourceTree = "<group>"; };
@@ -678,6 +681,8 @@
 				04F78CEC1C029E1800BEC219 /* MyInfoViewController.m */,
 				04F78CF11C02A3D100BEC219 /* MyWeiboCell.h */,
 				04F78CF21C02A3D100BEC219 /* MyWeiboCell.m */,
+				04F78CF61C02F5B700BEC219 /* WordImageView.h */,
+				04F78CF71C02F5B700BEC219 /* WordImageView.m */,
 			);
 			name = "个人";
 			sourceTree = "<group>";
@@ -1037,6 +1042,7 @@
 				04F78CED1C029E1800BEC219 /* MyInfoViewController.m in Sources */,
 				04CC10BB1BF3443100E12DB0 /* DNAlbumTableViewController.m in Sources */,
 				0408902F1BDE300200E69790 /* UIImageView+HighlightedWebCache.m in Sources */,
+				04F78CF81C02F5B700BEC219 /* WordImageView.m in Sources */,
 				040890291BDE300200E69790 /* SDWebImageManager.m in Sources */,
 				0412870C1BD79F1D0032411F /* CheckData.m in Sources */,
 				0408902A1BDE300200E69790 /* SDWebImagePrefetcher.m in Sources */,

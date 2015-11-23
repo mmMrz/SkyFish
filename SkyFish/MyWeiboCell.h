@@ -15,4 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *locationAndDateLbl;
 @property (weak, nonatomic) IBOutlet UILabel *commentCountLbl;
 
+- (void)setupViewWithDynamicInfo:(NSDictionary *)dynamicInfo;
+
 @end

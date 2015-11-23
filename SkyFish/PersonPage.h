@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PersonPage : UIViewController{
+@interface PersonPage : UIViewController<UITableViewDataSource,UITableViewDelegate>{
     __weak IBOutlet UIImageView *headView;
     __weak IBOutlet UILabel *nameLbl;
     __weak IBOutlet UILabel *weiboCount;
@@ -21,5 +21,7 @@
     __weak IBOutlet UITableView *_tableView;
     
 }
+
+@property (nonatomic, strong) NSString *uid;
 
 @end

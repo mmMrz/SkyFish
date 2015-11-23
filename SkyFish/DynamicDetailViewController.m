@@ -66,9 +66,11 @@
     if ([_dynamicInfo[@"content"] isEqualToString:@""]||_dynamicInfo[@"content"]==nil) {
         textSize.height=0;
     }
-    CGRect textFrame = content_lbl.frame;
-    textFrame.size.height = textSize.height;
-    [content_lbl setFrame:textFrame];
+    for (NSLayoutConstraint *constraint in content_lbl.constraints) {
+        if (constraint.firstItem==content_lbl&&constraint.firstAttribute==NSLayoutAttributeHeight) {
+            constraint.constant = textSize.height;
+        }
+    }
     
     CGRect tableHeaderBottomViewFrame = tableHeaderBottom_view.frame;
     
@@ -76,15 +78,26 @@
     NSArray *images = _dynamicInfo[@"images"];
     float imageWidth = (SCREEN_WIDTH-16-6)/3;
     for (int i=0; i<images.count; i++) {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(8+i*(imageWidth+2), content_lbl.origin.y+content_lbl.height+2+(imageWidth+2)*(i/3), imageWidth, imageWidth)];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0, imageWidth, imageWidth)];
         NSString *imageUrl = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)images[i], nil, nil, kCFStringEncodingUTF8));
         UIImage *image = [UIImage imageNamed:@"testJPG"];
         [imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:image completed:^(UIImage *image,NSError *error,SDImageCacheType cacheType, NSURL *imageURL){
             [[GlobalData sharedInstance].currentUserInfo setAvatarImg:image];
         }];
         [content_lbl.superview addSubview:imageView];
-        tableHeaderBottomViewFrame.origin.y = imageView.origin.y+imageView.height+2;
+        
+        imageView.translatesAutoresizingMaskIntoConstraints = NO;
+        NSArray *imageVConstraintAry = [NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:[contentLbl]-%f-[imageView(%f)]",2+(imageWidth+2)*(i/3),imageWidth] options:0 metrics:nil views:@{@"contentLbl":content_lbl,@"imageView": imageView}];
+        NSArray *imageHConstraintAry = [NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:|-%f-[imageView(%f)]",8+(i%3)*(imageWidth+2),imageWidth] options:0 metrics:nil views:@{@"imageView": imageView}];
+        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0")) {
+            [NSLayoutConstraint activateConstraints:imageVConstraintAry];
+            [NSLayoutConstraint activateConstraints:imageHConstraintAry];
+        }else{
+            [imageView addConstraints:imageVConstraintAry];
+            [imageView addConstraints:imageHConstraintAry];
+        }
     }
+    tableHeaderBottomViewFrame.origin.y = 62+textSize.height+2+ceilf(images.count/3.0)*imageWidth+2;
     
     //加载点赞头像
     NSArray *praiseMember = _dynamicInfo[@"praiseMember"];
@@ -109,7 +122,7 @@
     CGRect tableHeaderViewFrame = tableHeader_view.frame;
     tableHeaderViewFrame.size.height=tableHeaderBottomViewFrame.origin.y+tableHeaderBottomViewFrame.size.height;
     [tableHeader_view setFrame:tableHeaderViewFrame];
-    
+    [_tableView setTableHeaderView:tableHeader_view];
     [_tableView reloadData];
 }
 
