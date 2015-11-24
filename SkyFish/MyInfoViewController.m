@@ -17,7 +17,7 @@
 {
     [super viewDidLoad];
     [self.navigationController loadTheme];
-    [self.navigationItem addTitleViewWithTitle:@"个人"];
+    [self setTitle:@"个人"];
     [self.navigationItem addLeftBarButtonItem:[UIBarButtonItem themedLeftMenuButtonWithTarget:self andSelector:@selector(showLeftMenu:)]];
     
 }

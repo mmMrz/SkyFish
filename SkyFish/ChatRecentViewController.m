@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self.navigationController loadTheme];
-    [self.navigationItem addTitleViewWithTitle:@"消息"];
+    [self setTitle:@"消息"];
     [self.navigationItem addLeftBarButtonItem:[UIBarButtonItem themedLeftMenuButtonWithTarget:self andSelector:@selector(showLeftMenu:)]];
     
     UIView *view = [UIView new];

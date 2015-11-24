@@ -18,6 +18,8 @@
 
 @implementation SNServicesTableViewController
 
+@synthesize listType = _listType;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     dynamicAry = [[NSMutableArray alloc] initWithCapacity:20];
@@ -28,6 +30,20 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
+    refresh.tintColor = [UIColor lightGrayColor];
+    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"下拉刷新"];
+    [refresh addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refresh;
+}
+
+-(void)refresh:(UIRefreshControl *)refresh
+{
+    if (refresh.refreshing) {
+        refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"努力加载..."];
+        [self loadData];
+    }
 }
 
 - (void)loadData
@@ -35,7 +51,28 @@
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
     [parameters setObject:@"0" forKey:@"page"];
     [parameters setObject:@"20" forKey:@"count"];
-    [CSLoadData requestOfInfomationWithURI:[NSString stringWithFormat:@"%@",WEIBO_GETLISTGROUND] andParameters:parameters complete:^(NSDictionary *responseDic) {
+    NSString *URLStr = WEIBO_GETLISTGROUND;
+    switch (_listType) {
+        case ground:
+            URLStr = WEIBO_GETLISTGROUND;
+            break;
+            
+        case near:
+            URLStr = WEIBO_GETLISTNEAR;
+            [parameters setObject:[GlobalData sharedInstance].lat==nil?@"":[GlobalData sharedInstance].lat forKey:@"lat"];
+            [parameters setObject:[GlobalData sharedInstance].lng==nil?@"":[GlobalData sharedInstance].lng forKey:@"lng"];
+            break;
+            
+        case friend:
+            URLStr = WEIBO_GETLISTFRIEND;
+            break;
+            
+        default:
+            break;
+    }
+    
+    [CSLoadData requestOfInfomationWithURI:URLStr andParameters:parameters complete:^(NSDictionary *responseDic) {
+        [self.refreshControl endRefreshing];
         if ([CheckData isEmpty:responseDic[@"msg"]]) {
             [ProgressHUD dismiss];
         }else{
@@ -45,6 +82,7 @@
         [dynamicAry addObjectsFromArray:responseDic[@"data"]];
         [self.tableView reloadData];
     } failed:^(NSError *error) {
+        [self.refreshControl endRefreshing];
         [ProgressHUD showError:[error localizedDescription]];
     }];
 }

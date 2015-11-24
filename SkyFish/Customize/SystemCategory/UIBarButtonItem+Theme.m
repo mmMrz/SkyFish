@@ -33,6 +33,7 @@
 + (UIBarButtonItem *)themedCancelButtonWithTarget:(id)target andSelector:(SEL)selector {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setTitle:@"取消" forState:UIControlStateNormal];
+    [button.titleLabel setFont:[UIFont systemFontOfSize:15.0]];
     [button setFrame:CGRectMake(0, 0, 60, 40)];
     [button addTarget:target action:selector forControlEvents:UIControlEventTouchUpInside];
     

@@ -9,10 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface PublishDynamicViewController : UIViewController<UITextViewDelegate>{
-    
     __weak IBOutlet UITextView *text_content;
-    __weak IBOutlet UIView *selectedImage_view;
-    
+    __weak IBOutlet UICollectionView *imageCollectionView;
 }
 
 @end

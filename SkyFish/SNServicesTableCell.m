@@ -52,6 +52,10 @@
     
     //加载帖子图片
     NSArray *images = dynamicInfo[@"images"];
+    if ([images isKindOfClass:[NSNull null].class]) {
+        
+        images = nil;
+    }
     float imageWidth = (SCREEN_WIDTH-16-6)/3;
     for (int i=0; i<images.count; i++) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0, imageWidth, imageWidth)];
@@ -90,6 +94,10 @@
     
     //加载帖子图片
     NSArray *images = dynamicInfo[@"images"];
+    if ([images isKindOfClass:[NSNull null].class]) {
+        images = nil;
+    }
+    
     float imageWidth = (SCREEN_WIDTH-16-6)/3;
     
     return _content_lbl.origin.y+textSize.height+2+ceil(images.count/3.0)*(imageWidth+2)+2+_bottom_view.height;

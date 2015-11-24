@@ -18,7 +18,7 @@
     fishLocationAry = [[NSMutableArray alloc] initWithCapacity:20];
     
     [self.navigationController loadTheme];
-    [self.navigationItem addTitleViewWithTitle:@"热闹"];
+    [self setTitle:@"热闹"];
     [self.navigationItem addLeftBarButtonItem:[UIBarButtonItem themedLeftMenuButtonWithTarget:self andSelector:@selector(showLeftMenu:)]];
     
     UIButton *addBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-90, SCREEN_HEIGHT-NAV_HEIGHT-90, 60, 60)];
@@ -131,6 +131,8 @@
     _mapView.showsUserLocation = YES;
     [_mapView setUserTrackingMode: MAUserTrackingModeFollow animated:YES];
     
+    _mapView.distanceFilter = kCLLocationAccuracyNearestTenMeters;
+    _mapView.desiredAccuracy = kCLLocationAccuracyHundredMeters;
     
 }
 
@@ -146,6 +148,8 @@ updatingLocation:(BOOL)updatingLocation
 
 - (void)updateUserLocationToServers:(CLLocationCoordinate2D)coordinate
 {
+    [GlobalData sharedInstance].lat = [NSString stringWithFormat:@"%f",coordinate.latitude];
+    [GlobalData sharedInstance].lng = [NSString stringWithFormat:@"%f",coordinate.longitude];
     if (fabs(coordinate.latitude-oldCoordinate.latitude)>0.00005||fabs(coordinate.longitude-oldCoordinate.longitude)>0.00005) {
         
         NSDate *now = [NSDate date];

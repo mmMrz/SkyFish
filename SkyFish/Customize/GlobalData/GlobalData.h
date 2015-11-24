@@ -17,6 +17,11 @@
 @property (nonatomic, strong) NSString *userAccount;//用户登录名
 @property (nonatomic, strong) NSString *userPassword;//用户登录名
 
+//坐标
+@property (nonatomic, strong) NSString *lng;
+@property (nonatomic, strong) NSString *lat;
+@property (nonatomic, strong) NSString *location;
+
 + (GlobalData *)sharedInstance;
 - (void)synchronize;
 

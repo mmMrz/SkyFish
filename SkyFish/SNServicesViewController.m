@@ -17,7 +17,7 @@
     [self setupView];
     
     [self.navigationController loadTheme];
-    [self.navigationItem addTitleViewWithTitle:@"热闹"];
+    [self setTitle:@"热闹"];
     [self.navigationItem addLeftBarButtonItem:[UIBarButtonItem themedLeftMenuButtonWithTarget:self andSelector:@selector(showLeftMenu:)]];
 //    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 100)];
 //    [view setBackgroundColor:[UIColor blackColor]];
@@ -50,12 +50,15 @@
     [mainScroll setContentSize:CGSizeMake(SCREEN_WIDTH*3, SCREEN_HEIGHT-64)];
     
     SNServicesTableViewController *allDynamic = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"SNServicesTableViewController"];
+    [allDynamic setListType:ground];
     [allDynamic.view setFrame:CGRectMake(0, segmentView.height, SCREEN_WIDTH, SCREEN_HEIGHT-NAV_HEIGHT-segmentView.height)];
     [mainScroll addSubview:allDynamic.view];
     SNServicesTableViewController *nearByDynamic = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"SNServicesTableViewController"];
+    [nearByDynamic setListType:near];
     [nearByDynamic.view setFrame:CGRectMake(SCREEN_WIDTH, segmentView.height, SCREEN_WIDTH, SCREEN_HEIGHT-NAV_HEIGHT-segmentView.height)];
     [mainScroll addSubview:nearByDynamic.view];
     SNServicesTableViewController *friendsDynamic = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"SNServicesTableViewController"];
+    [friendsDynamic setListType:friend];
     [friendsDynamic.view setFrame:CGRectMake(SCREEN_WIDTH*2, segmentView.height, SCREEN_WIDTH, SCREEN_HEIGHT-NAV_HEIGHT-segmentView.height)];
     [mainScroll addSubview:friendsDynamic.view];
     

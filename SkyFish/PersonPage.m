@@ -13,13 +13,14 @@
     NSDictionary *personInfoDic;
     NSArray *weiboListAry;
     int page;
+    __weak IBOutlet UIImageView *bgImage;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.navigationController.navigationBar.translucent = YES;
-    [self.navigationItem addTitleViewWithTitle:@"个人主页"];
+    [self setTitle:@"个人主页"];
     [self.navigationItem addLeftBarButtonItem:[UIBarButtonItem themedBackButtonWithTarget:self andSelector:@selector(navBack)]];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self loadData];
@@ -96,6 +97,26 @@
     return 1;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 30;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 30)];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"我的热闹"]];
+    [imageView setFrame:CGRectMake(12, 10, 20, 20)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(35, 10, 100, 20)];
+    [label setFont:[UIFont systemFontOfSize:13.0]];
+    [label setTextColor:[UIColor darkGrayColor]];
+    [label setText:@"我的热闹"];
+    [view setBackgroundColor:[UIColor clearColor]];
+    [view addSubview:imageView];
+    [view addSubview:label];
+    return view;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [weiboListAry count];
@@ -112,6 +133,22 @@
     MyWeiboCell *cell = [tableView dequeueReusableCellWithIdentifier:MyWeiboCellIdentifier];
     [cell setupViewWithDynamicInfo:weiboListAry[indexPath.row]];
     return cell;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (scrollView.contentOffset.y<0) {
+        for (NSLayoutConstraint *constraint in bgImage.constraints) {
+            if (constraint.firstItem==bgImage) {
+                if (constraint.firstAttribute==NSLayoutAttributeHeight) {
+                    constraint.constant = 235+scrollView.contentOffset.y*-1;
+                }
+                if (constraint.firstAttribute==NSLayoutAttributeWidth) {
+                    constraint.constant = 320+scrollView.contentOffset.y*-1;
+                }
+            }
+        }
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

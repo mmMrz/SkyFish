@@ -39,7 +39,7 @@
     // Do any additional setup after loading the view.
     
     [self.navigationController loadTheme];
-    [self.navigationItem addTitleViewWithTitle:@"发表评论"];
+    [self setTitle:@"发表评论"];
     
     _imageDic = [[NSMutableDictionary alloc] init];
 

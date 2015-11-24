@@ -39,7 +39,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.navigationItem addTitleViewWithTitle:_fishLocationInfo[@"name"]];
+    [self setTitle:_fishLocationInfo[@"name"]];
     [self.navigationItem addLeftBarButtonItem:[UIBarButtonItem themedBackButtonWithTarget:self andSelector:@selector(navBack)]];
     [self loadData];
     
