@@ -9,11 +9,22 @@
 #import "DynamicDetailViewController.h"
 #import "DynamicDetailCommentCell.h"
 #import "DynamicDetailSubCommentCell.h"
+#import "PersonPage.h"
 
 #define TableBottomViewHeight 77
 
-@interface DynamicDetailViewController (){
+@interface DynamicDetailViewController ()<SNServicesTableCellDelegate>{
 //    NSDictionary *dynamicInfo;
+    
+    __weak IBOutlet UIImageView *praiseImg;
+    __weak IBOutlet UILabel *praiseLbl;
+    __weak IBOutlet UIView *reply_view;
+    __weak IBOutlet UITextField *reply_tf;
+    __weak IBOutlet NSLayoutConstraint *relyView_bttom;
+    
+    NSString *fid;
+    
+    float keyBoardHeight;
 }
 
 @end
@@ -25,6 +36,11 @@
     // Do any additional setup after loading the view.
     [self setupView];
     [self loadData];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    
 }
 
 - (void)loadData
@@ -37,7 +53,8 @@
         }else{
             [ProgressHUD showSuccess:responseDic[@"info"]];
         }
-        _dynamicInfo = responseDic[@"data"];
+        _dynamicInfo = [[NSMutableDictionary alloc] initWithDictionary:responseDic[@"data"]];
+        [self sortChildCommentForComment];
         [self setupView];
     } failed:^(NSError *error) {
         [ProgressHUD showError:[error localizedDescription]];
@@ -151,10 +168,36 @@
     return [_dynamicInfo[@"comment"][section][@"child"] count]+1;
 }
 
+//序列化动态的评论数组
+- (void)sortChildCommentForComment
+{
+    NSMutableArray *commentAry = [[NSMutableArray alloc] initWithArray:_dynamicInfo[@"comment"]];
+    for (int i=0;i<[commentAry count];i++) {
+        NSMutableDictionary *commentInfo = [[NSMutableDictionary alloc] initWithDictionary:_dynamicInfo[@"comment"][i]];
+        NSMutableArray *childCommentAry = [[NSMutableArray alloc] initWithCapacity:10];
+        [self recursionForCommentChild:commentInfo andChildCommentAry:childCommentAry];
+        [commentInfo setObject:childCommentAry forKey:@"child"];
+        [commentAry replaceObjectAtIndex:i withObject:commentInfo];
+    }
+    [_dynamicInfo setObject:commentAry forKey:@"comment"];
+}
+
+//递归得到所有的子回复
+- (void)recursionForCommentChild:(NSDictionary *)commentInfo andChildCommentAry:(NSMutableArray *)childCommentAry
+{
+    for (NSDictionary *subCommentInfo in commentInfo[@"child"]) {
+        [childCommentAry addObject:subCommentInfo];
+        if ([subCommentInfo[@"child"] count]>0) {
+            [self recursionForCommentChild:subCommentInfo andChildCommentAry:childCommentAry];
+        }
+    }
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row==0) {
         DynamicDetailCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CommentCell"];
+        NSLog(@"%ld",indexPath.section);
         return [cell cellHeightWithCommentInfo:_dynamicInfo[@"comment"][indexPath.section]];
     }else{
         DynamicDetailSubCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SubCommentCell"];
@@ -167,6 +210,7 @@
     NSDictionary *dynamicInfo = [_dynamicInfo[@"comment"] objectAtIndex:indexPath.section];
     if (indexPath.row==0) {
         DynamicDetailCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CommentCell"];
+        [cell setDelegate:self];
         [cell setupViewWithCommentInfo:dynamicInfo];
         return cell;
     }else{
@@ -179,6 +223,186 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NSDictionary *dynamicInfo = [_dynamicInfo[@"comment"] objectAtIndex:indexPath.section];
+    NSString *uid=@"0",*uname=@"匿名";
+    if (indexPath.row==0) {
+        uid = dynamicInfo[@"id"];
+        uname = dynamicInfo[@"authorName"];
+    }else{
+        uid = dynamicInfo[@"child"][indexPath.row-1][@"id"];
+        uname = dynamicInfo[@"child"][indexPath.row-1][@"authorName"];
+    }
+    [self replyUserWithId:uid andName:uname];
 }
+
+- (IBAction)praise:(UIButton*)sender
+{
+    if ([_dynamicInfo[@"praiseStatus"] integerValue]==0) {
+        //点赞
+        NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+        [parameters setObject:_dynamicInfo[@"id"] forKey:@"id"];
+        [CSLoadData requestOfInfomationWithURI:[NSString stringWithFormat:@"%@",WEIBO_PRAISE] andParameters:parameters complete:^(NSDictionary *responseDic) {
+            if ([responseDic[@"status"] integerValue]==0) {
+                [ProgressHUD dismiss];
+            }else{
+                [ProgressHUD showSuccess:responseDic[@"info"]];
+            }
+            [ProgressHUD showSuccess:@"点赞成功"];
+            [_dynamicInfo setObject:@"1" forKey:@"praiseStatus"];
+            [self animationForPraise:YES];
+        } failed:^(NSError *error) {
+            [ProgressHUD showError:[error localizedDescription]];
+        }];
+    }else{
+        //取消赞
+        NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+        [parameters setObject:_dynamicInfo[@"id"] forKey:@"id"];
+        [CSLoadData requestOfInfomationWithURI:[NSString stringWithFormat:@"%@",WEIBO_UNPRAISE] andParameters:parameters complete:^(NSDictionary *responseDic) {
+            if ([responseDic[@"status"] integerValue]==0) {
+                [ProgressHUD dismiss];
+            }else{
+                [ProgressHUD showSuccess:responseDic[@"info"]];
+            }
+            [ProgressHUD showSuccess:@"取消点赞"];
+            [_dynamicInfo setObject:@"0" forKey:@"praiseStatus"];
+            [self animationForPraise:NO];
+        } failed:^(NSError *error) {
+            [ProgressHUD showError:[error localizedDescription]];
+        }];
+    }
+}
+
+- (void)animationForPraise:(BOOL)praise
+{
+    if (praise) {
+        [praiseImg setHighlighted:praise];
+        [praiseLbl setText:[NSString stringWithFormat:@"%ld",praiseLbl.text.integerValue+1]];
+    }else{
+        [praiseImg setHighlighted:praise];
+        [praiseLbl setText:[NSString stringWithFormat:@"%ld",praiseLbl.text.integerValue-1]];
+    }
+}
+
+- (IBAction)comment:(UIButton*)sender
+{
+    [reply_tf setPlaceholder:[NSString stringWithFormat:@"说点什么吧"]];
+    fid = @"";
+    [reply_tf becomeFirstResponder];
+}
+
+#pragma mark - 键盘出现
+- (void)keyboardWillShow:(NSNotification*)notification
+{
+    NSDictionary *userInfo = [notification userInfo];
+    
+    NSValue *aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    
+    CGRect keyboardRect = [aValue CGRectValue];
+    keyboardRect = [self.view convertRect:keyboardRect fromView:nil];
+    
+    CGFloat keyboardTop = keyboardRect.origin.y;
+    
+    //    CGFloat textFieldBottom = textFieldFrame.origin.y+type_view.frame.size.height;
+    CGFloat textFieldBottom = SCREEN_HEIGHT - 39;
+    
+    
+    CGFloat shouldMove = 0;
+    if (textFieldBottom>keyboardTop) {
+        shouldMove = textFieldBottom-keyboardTop;
+        
+    }
+    CGRect newViewFrame = reply_view.frame;
+    newViewFrame.origin.y-=shouldMove;
+    
+    //    [UIView animateWithDuration:0.35 animations:^{
+    //        reply_view.frame = newViewFrame;
+    //    }];
+    keyBoardHeight = keyboardRect.size.height;
+    [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        [relyView_bttom setConstant:keyboardRect.size.height];
+        [self.view layoutIfNeeded];
+        
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+#pragma mark - 键盘即将改变尺寸
+- (void)keyboardWillChangeFrame:(NSNotification*)notification
+{
+    //固定键盘时这里不需要操作
+}
+#pragma mark - 键盘即将消失
+- (void)keyboardWillHide:(NSNotification*)notification
+{
+    //    CGRect newViewFrame = reply_view.frame;
+    //    newViewFrame.origin.y=self.view.frame.size.height-type_view.frame.size.height;
+    //    newViewFrame.origin.y=self.view.frame.size.height-60;
+    
+    //    reply_view.frame = newViewFrame;
+#pragma mark - 键盘回收的时候 处理一下选择图片组件按钮的状态 因为如果当前是打开的情况下 直接可以编辑输入框 这时候键盘如果回收 那么 按钮与打开与否的情况不一致
+    [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        [relyView_bttom setConstant:0];
+        [self.view layoutIfNeeded];
+    } completion:^(BOOL finished) {
+        
+    }];
+    keyBoardHeight = 0;
+}
+
+- (IBAction)sendComment:(UIButton *)sender {
+    [reply_tf resignFirstResponder];
+    if ([reply_tf.text isEqualToString:@""]) {
+        return;
+    }
+    //评论
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+    [parameters setObject:_dynamicInfo[@"id"] forKey:@"wid"];
+    [parameters setObject:fid forKey:@"fid"];
+    [parameters setObject:reply_tf.text forKey:@"content"];
+    [CSLoadData requestOfInfomationWithURI:[NSString stringWithFormat:@"%@",WEIBO_COMMENT] andParameters:parameters complete:^(NSDictionary *responseDic) {
+        if ([responseDic[@"status"] integerValue]==0) {
+            [ProgressHUD dismiss];
+        }else{
+            [ProgressHUD showSuccess:responseDic[@"info"]];
+        }
+        //刷新
+        [ProgressHUD showSuccess:@"回复成功"];
+        [self loadData];
+    } failed:^(NSError *error) {
+        [ProgressHUD showError:[error localizedDescription]];
+    }];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self sendComment:nil];
+    return YES;
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [reply_tf resignFirstResponder];
+}
+
+- (void)replyUserWithId:(NSString *)uid andName:(NSString *)uname
+{
+    [reply_tf setPlaceholder:[NSString stringWithFormat:@"回复给:%@",uname]];
+    fid = uid;
+    [reply_tf becomeFirstResponder];
+}
+
+- (IBAction)toUserProfile:(UIButton *)sender {
+    [self toUserProfileWithUserId:_dynamicInfo[@"authorId"]];
+}
+
+- (void)toUserProfileWithUserId:(NSString *)uid
+{
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    PersonPage *personPage = [story instantiateViewControllerWithIdentifier:@"PersonPage"];
+    [personPage setUid:uid];
+    [self.navigationController pushViewController:personPage animated:YES];
+}
+
 
 @end

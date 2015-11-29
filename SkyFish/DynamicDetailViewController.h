@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DynamicDetailViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>{
+@interface DynamicDetailViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>{
     __weak IBOutlet UIImageView *head_ImgView;
     __weak IBOutlet UILabel *name_lbl;
     __weak IBOutlet UILabel *time_lbl;
@@ -22,6 +22,6 @@
     __weak IBOutlet UITableView *_tableView;
 }
 
-@property (nonatomic, strong) NSDictionary *dynamicInfo;
+@property (nonatomic, strong) NSMutableDictionary *dynamicInfo;
 
 @end

@@ -8,7 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SNServicesTableCell : UITableViewCell
+@protocol SNServicesTableCellDelegate <NSObject>
+
+- (void)toUserProfileWithUserId:(NSString*)uid;
+
+@end
+
+@interface SNServicesTableCell : UITableViewCell{
+    NSString *uid;
+}
 
 @property (weak, nonatomic) IBOutlet UIImageView *head_ImgView;
 @property (weak, nonatomic) IBOutlet UILabel *name_lbl;
@@ -18,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *praiseCount_lbl;
 @property (weak, nonatomic) IBOutlet UILabel *commentCount_lbl;
 @property (weak, nonatomic) IBOutlet UIView *bottom_view;
+@property (strong, nonatomic) id<SNServicesTableCellDelegate> delegate;
 
 - (void)setupViewWithDynamicInfo:(NSDictionary *)dynamicInfo;
 - (float)cellHeightWithDynamicInfo:(NSDictionary *)dynamicInfo;

@@ -24,7 +24,11 @@
         [self.headView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:image completed:^(UIImage *image,NSError *error,SDImageCacheType cacheType, NSURL *imageURL){
         }];
     }else{
-        WordImageView *wiv = [[WordImageView alloc] initWithFrame:_headView.frame andWord:[dynamicInfo[@"content"] substringToIndex:1]];
+        NSString *word = dynamicInfo[@"content"];
+        if (![word isEqualToString:@""]) {
+            word = [dynamicInfo[@"content"] substringToIndex:1];
+        }
+        WordImageView *wiv = [[WordImageView alloc] initWithFrame:_headView.frame andWord:word];
         [self.contentView addSubview:wiv];
     }
     

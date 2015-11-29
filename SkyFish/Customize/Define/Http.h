@@ -32,6 +32,9 @@
 #define WEIBO_GETLISTFRIEND @"/weibo/getListFriend/"//取微博列表_朋友
 #define WEIBO_GETITEM @"/weibo/getItem/"//取微博_详情
 #define WEIBO_GETLIST @"/weibo/getList/"//取微博列表_某用户
+#define WEIBO_PRAISE @"/weibo/praise/"//赞微博
+#define WEIBO_UNPRAISE @"/weibo/unPraise/"//取消赞微博
+#define WEIBO_COMMENT @"/weibo/comment/"//评论微博
 
 //通用
 #define COMMON_QINIUTOKEN @"/common/qiniuToken"//获取七牛token

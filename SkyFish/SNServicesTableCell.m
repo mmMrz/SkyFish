@@ -24,7 +24,7 @@
             [view removeFromSuperview];
         }
     }
-    
+    uid = dynamicInfo[@"authorId"];
     [self.name_lbl setText:dynamicInfo[@"authorName"]];
     [self.content_lbl setText:dynamicInfo[@"content"]];
     [self.address_lbl setText:dynamicInfo[@"address"]];
@@ -107,6 +107,10 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (IBAction)toUserProfile:(UIButton *)sender {
+    [_delegate toUserProfileWithUserId:uid];
 }
 
 @end

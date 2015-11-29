@@ -9,8 +9,9 @@
 #import "SNServicesTableViewController.h"
 #import "SNServicesTableCell.h"
 #import "DynamicDetailViewController.h"
+#import "PersonPage.h"
 
-@interface SNServicesTableViewController () {
+@interface SNServicesTableViewController ()<SNServicesTableCellDelegate> {
     NSMutableArray *dynamicAry;
     NSInteger clickedRow;
 }
@@ -73,10 +74,10 @@
     
     [CSLoadData requestOfInfomationWithURI:URLStr andParameters:parameters complete:^(NSDictionary *responseDic) {
         [self.refreshControl endRefreshing];
-        if ([CheckData isEmpty:responseDic[@"msg"]]) {
+        if ([responseDic[@"status"] integerValue]==0) {
             [ProgressHUD dismiss];
         }else{
-            [ProgressHUD showSuccess:responseDic[@"msg"]];
+            [ProgressHUD showSuccess:responseDic[@"info"]];
         }
         NSLog(@"%@",responseDic);
         [dynamicAry addObjectsFromArray:responseDic[@"data"]];
@@ -110,7 +111,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     SNServicesTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SNServicesTableCell"];
-    
+    [cell setDelegate:self];
     NSDictionary *dynamicInfo = [dynamicAry objectAtIndex:indexPath.row];
     
     [cell setupViewWithDynamicInfo:dynamicInfo];
@@ -170,6 +171,14 @@
         [destinationViewController setDynamicInfo:dynamicAry[clickedRow]];
         clickedRow = -1;
     }
+}
+
+- (void)toUserProfileWithUserId:(NSString *)uid
+{
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    PersonPage *personPage = [story instantiateViewControllerWithIdentifier:@"PersonPage"];
+    [personPage setUid:uid];
+    [self.navigationController pushViewController:personPage animated:YES];
 }
 
 @end

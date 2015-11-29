@@ -351,10 +351,10 @@
 - (void)requestQINIUToken
 {
     [CSLoadData requestOfInfomationWithURI:COMMON_QINIUTOKEN andParameters:nil complete:^(NSDictionary *responseDic) {
-        if ([CheckData isEmpty:responseDic[@"msg"]]) {
+        if ([responseDic[@"status"] integerValue]==0) {
             [ProgressHUD dismiss];
         }else{
-            [ProgressHUD showSuccess:responseDic[@"msg"]];
+            [ProgressHUD showSuccess:responseDic[@"info"]];
         }
         NSString *qiniuToken = responseDic[@"data"][@"token"];
         [[GlobalData sharedInstance].currentUserInfo setQiniuToken:qiniuToken];

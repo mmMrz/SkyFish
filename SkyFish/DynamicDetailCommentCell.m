@@ -12,6 +12,7 @@
 
 - (void)setupViewWithCommentInfo:(NSDictionary *)commentInfo
 {
+    uid = commentInfo[@"uid"];
     [name_lbl setText:commentInfo[@"authorName"]];
     NSDate *date = [[NSDate alloc] initWithTimeIntervalSince1970:[commentInfo[@"time"] longLongValue]];
     [time_lbl setText:[date toDisplyString]];
@@ -46,7 +47,9 @@
 
     // Configure the view for the selected state
 }
-- (IBAction)reply:(UIButton *)sender {
+
+- (IBAction)toUserProfile:(UIButton *)sender {
+    [_delegate toUserProfileWithUserId:uid];
 }
 
 @end

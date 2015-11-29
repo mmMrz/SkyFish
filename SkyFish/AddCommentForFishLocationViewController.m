@@ -76,10 +76,10 @@
     [parameters setObject:[NSNumber numberWithFloat:gradeFloat] forKey:@"score"];
     NSLog(@"发布动态：%@",parameters);
     [CSLoadData requestOfInfomationWithURI:PLACE_SCORE andParameters:parameters complete:^(NSDictionary *responseDic) {
-        if ([CheckData isEmpty:responseDic[@"msg"]]) {
+        if ([responseDic[@"status"] integerValue]==0) {
             [ProgressHUD dismiss];
         }else{
-            [ProgressHUD showSuccess:responseDic[@"msg"]];
+            [ProgressHUD showSuccess:responseDic[@"info"]];
         }
         NSLog(@"%@",responseDic);
         
@@ -386,10 +386,10 @@
 - (void)requestQINIUToken
 {
     [CSLoadData requestOfInfomationWithURI:COMMON_QINIUTOKEN andParameters:nil complete:^(NSDictionary *responseDic) {
-        if ([CheckData isEmpty:responseDic[@"msg"]]) {
+        if ([responseDic[@"status"] integerValue]==0) {
             [ProgressHUD dismiss];
         }else{
-            [ProgressHUD showSuccess:responseDic[@"msg"]];
+            [ProgressHUD showSuccess:responseDic[@"info"]];
         }
         NSString *qiniuToken = responseDic[@"data"][@"token"];
         [[GlobalData sharedInstance].currentUserInfo setQiniuToken:qiniuToken];

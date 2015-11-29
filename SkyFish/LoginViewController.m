@@ -36,10 +36,10 @@
     [parameters setObject:userPassword_tf.text forKey:@"password"];
     [parameters setObject:@"1" forKey:@"type"];
     [CSLoadData requestOfInfomationWithURI:[NSString stringWithFormat:@"%@",USER_LOGIN] andParameters:parameters complete:^(NSDictionary *responseDic) {
-        if ([CheckData isEmpty:responseDic[@"msg"]]) {
+        if ([responseDic[@"status"] integerValue]==0) {
             [ProgressHUD dismiss];
         }else{
-            [ProgressHUD showSuccess:responseDic[@"msg"]];
+            [ProgressHUD showSuccess:responseDic[@"info"]];
         }
         NSLog(@"%@",responseDic);
         
