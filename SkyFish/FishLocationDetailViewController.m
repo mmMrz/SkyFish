@@ -28,6 +28,9 @@
     __weak IBOutlet UILabel *descripeLbl;
     __weak IBOutlet UIPageControl *pictureScrollPageControl;
     
+    __weak IBOutlet NSLayoutConstraint *constraintTest;
+    
+    
 }
 
 @end
@@ -42,7 +45,6 @@
     [self setTitle:_fishLocationInfo[@"name"]];
     [self.navigationItem addLeftBarButtonItem:[UIBarButtonItem themedBackButtonWithTarget:self andSelector:@selector(navBack)]];
     [self loadData];
-    
     
 }
 

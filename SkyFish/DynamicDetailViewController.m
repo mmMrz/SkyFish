@@ -62,6 +62,31 @@
     
 }
 
+//序列化动态的评论数组
+- (void)sortChildCommentForComment
+{
+    NSMutableArray *commentAry = [[NSMutableArray alloc] initWithArray:_dynamicInfo[@"comment"]];
+    for (int i=0;i<[commentAry count];i++) {
+        NSMutableDictionary *commentInfo = [[NSMutableDictionary alloc] initWithDictionary:_dynamicInfo[@"comment"][i]];
+        NSMutableArray *childCommentAry = [[NSMutableArray alloc] initWithCapacity:10];
+        [self recursionForCommentChild:commentInfo andChildCommentAry:childCommentAry];
+        [commentInfo setObject:childCommentAry forKey:@"child"];
+        [commentAry replaceObjectAtIndex:i withObject:commentInfo];
+    }
+    [_dynamicInfo setObject:commentAry forKey:@"comment"];
+}
+
+//递归得到所有的子回复
+- (void)recursionForCommentChild:(NSDictionary *)commentInfo andChildCommentAry:(NSMutableArray *)childCommentAry
+{
+    for (NSDictionary *subCommentInfo in commentInfo[@"child"]) {
+        [childCommentAry addObject:subCommentInfo];
+        if ([subCommentInfo[@"child"] count]>0) {
+            [self recursionForCommentChild:subCommentInfo andChildCommentAry:childCommentAry];
+        }
+    }
+}
+
 - (void)setupView
 {
     [name_lbl setText:_dynamicInfo[@"authorName"]];
@@ -166,31 +191,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [_dynamicInfo[@"comment"][section][@"child"] count]+1;
-}
-
-//序列化动态的评论数组
-- (void)sortChildCommentForComment
-{
-    NSMutableArray *commentAry = [[NSMutableArray alloc] initWithArray:_dynamicInfo[@"comment"]];
-    for (int i=0;i<[commentAry count];i++) {
-        NSMutableDictionary *commentInfo = [[NSMutableDictionary alloc] initWithDictionary:_dynamicInfo[@"comment"][i]];
-        NSMutableArray *childCommentAry = [[NSMutableArray alloc] initWithCapacity:10];
-        [self recursionForCommentChild:commentInfo andChildCommentAry:childCommentAry];
-        [commentInfo setObject:childCommentAry forKey:@"child"];
-        [commentAry replaceObjectAtIndex:i withObject:commentInfo];
-    }
-    [_dynamicInfo setObject:commentAry forKey:@"comment"];
-}
-
-//递归得到所有的子回复
-- (void)recursionForCommentChild:(NSDictionary *)commentInfo andChildCommentAry:(NSMutableArray *)childCommentAry
-{
-    for (NSDictionary *subCommentInfo in commentInfo[@"child"]) {
-        [childCommentAry addObject:subCommentInfo];
-        if ([subCommentInfo[@"child"] count]>0) {
-            [self recursionForCommentChild:subCommentInfo andChildCommentAry:childCommentAry];
-        }
-    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

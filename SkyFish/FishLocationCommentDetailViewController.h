@@ -20,6 +20,6 @@
     __weak IBOutlet UIView *grade_view;
 }
 
-@property (nonatomic, strong) NSDictionary *fishLocationCommentInfo;
+@property (nonatomic, strong) NSMutableDictionary *fishLocationCommentInfo;
 
 @end

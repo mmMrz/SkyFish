@@ -40,6 +40,7 @@
     
     [self.navigationController loadTheme];
     [self setTitle:@"发表评论"];
+    [self.navigationItem addRightBarButtonItem:[UIBarButtonItem themedCancelButtonWithTarget:self andSelector:@selector(close:)]];
     
     _imageDic = [[NSMutableDictionary alloc] init];
 
@@ -53,6 +54,11 @@
     if ([GlobalData sharedInstance].currentUserInfo.qiniuToken==nil||[[GlobalData sharedInstance].currentUserInfo.qiniuToken isEqualToString:@""]) {
         [self requestQINIUToken];
     }
+}
+
+- (void)close:(UIButton *)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)publish:(UIButton *)sender {
