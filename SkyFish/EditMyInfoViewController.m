@@ -112,16 +112,16 @@
     NSString *token = [GlobalData sharedInstance].currentUserInfo.qiniuToken;
     QNUploadManager *upManager = [[QNUploadManager alloc] init];
     NSData *data = UIImageJPEGRepresentation(image, 1.0);
-    [upManager putData:data key:imageNameKey token:token complete: ^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
-        if (resp==nil) {
-            [imageInfo setObject:@"-1" forKey:@"progress"];
-        }else{
-            [imageInfo setObject:@"1" forKey:@"progress"];
-            [imageInfo setObject:imageNameKey forKey:@"key"];
-            if (shouldPublish) {
-                [self sendDynamic:nil];
-            }
-        }
+    [upManager putData:data key:imageName token:token complete: ^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
+//        if (resp==nil) {
+//            [imageInfo setObject:@"-1" forKey:@"progress"];
+//        }else{
+//            [imageInfo setObject:@"1" forKey:@"progress"];
+//            [imageInfo setObject:imageNameKey forKey:@"key"];
+//            if (shouldPublish) {
+//                [self sendDynamic:nil];
+//            }
+//        }
     } option:nil];
 }
 
