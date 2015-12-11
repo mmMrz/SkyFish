@@ -81,6 +81,8 @@
 		04C4C01F1BF98BB6005E8B6C /* LeftMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04C4C01E1BF98BB6005E8B6C /* LeftMenuCell.xib */; settings = {ASSET_TAGS = (); }; };
 		04CA48781BEC504700AFEF38 /* FishLocationAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CA48771BEC504700AFEF38 /* FishLocationAnnotation.m */; settings = {ASSET_TAGS = (); }; };
 		04CA487B1BEC96FC00AFEF38 /* FishLocationCallOut.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CA487A1BEC96FC00AFEF38 /* FishLocationCallOut.m */; settings = {ASSET_TAGS = (); }; };
+		04CA4B2F1C0EF8E60011E190 /* EditMyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CA4B2E1C0EF8E60011E190 /* EditMyInfoViewController.m */; settings = {ASSET_TAGS = (); }; };
+		04CA4B321C104DC00011E190 /* SelectSkillViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CA4B311C104DC00011E190 /* SelectSkillViewController.m */; settings = {ASSET_TAGS = (); }; };
 		04CC108C1BF2F73E00E12DB0 /* AddCommentForFishLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CC108B1BF2F73E00E12DB0 /* AddCommentForFishLocationViewController.m */; settings = {ASSET_TAGS = (); }; };
 		04CC108F1BF3423000E12DB0 /* ImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CC108E1BF3423000E12DB0 /* ImageCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		04CC10BB1BF3443100E12DB0 /* DNAlbumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CC10921BF3443100E12DB0 /* DNAlbumTableViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -270,6 +272,10 @@
 		04CA48771BEC504700AFEF38 /* FishLocationAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FishLocationAnnotation.m; sourceTree = "<group>"; };
 		04CA48791BEC96FC00AFEF38 /* FishLocationCallOut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FishLocationCallOut.h; sourceTree = "<group>"; };
 		04CA487A1BEC96FC00AFEF38 /* FishLocationCallOut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FishLocationCallOut.m; sourceTree = "<group>"; };
+		04CA4B2D1C0EF8E60011E190 /* EditMyInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditMyInfoViewController.h; sourceTree = "<group>"; };
+		04CA4B2E1C0EF8E60011E190 /* EditMyInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditMyInfoViewController.m; sourceTree = "<group>"; };
+		04CA4B301C104DC00011E190 /* SelectSkillViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectSkillViewController.h; sourceTree = "<group>"; };
+		04CA4B311C104DC00011E190 /* SelectSkillViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectSkillViewController.m; sourceTree = "<group>"; };
 		04CC108A1BF2F73E00E12DB0 /* AddCommentForFishLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCommentForFishLocationViewController.h; sourceTree = "<group>"; };
 		04CC108B1BF2F73E00E12DB0 /* AddCommentForFishLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCommentForFishLocationViewController.m; sourceTree = "<group>"; };
 		04CC108D1BF3423000E12DB0 /* ImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCollectionViewCell.h; sourceTree = "<group>"; };
@@ -683,6 +689,10 @@
 				04F78CF21C02A3D100BEC219 /* MyWeiboCell.m */,
 				04F78CF61C02F5B700BEC219 /* WordImageView.h */,
 				04F78CF71C02F5B700BEC219 /* WordImageView.m */,
+				04CA4B2D1C0EF8E60011E190 /* EditMyInfoViewController.h */,
+				04CA4B2E1C0EF8E60011E190 /* EditMyInfoViewController.m */,
+				04CA4B301C104DC00011E190 /* SelectSkillViewController.h */,
+				04CA4B311C104DC00011E190 /* SelectSkillViewController.m */,
 			);
 			name = "个人";
 			sourceTree = "<group>";
@@ -1045,6 +1055,7 @@
 				04F78CF81C02F5B700BEC219 /* WordImageView.m in Sources */,
 				040890291BDE300200E69790 /* SDWebImageManager.m in Sources */,
 				0412870C1BD79F1D0032411F /* CheckData.m in Sources */,
+				04CA4B321C104DC00011E190 /* SelectSkillViewController.m in Sources */,
 				0408902A1BDE300200E69790 /* SDWebImagePrefetcher.m in Sources */,
 				0408902B1BDE300200E69790 /* UIButton+WebCache.m in Sources */,
 				041287151BD79F1D0032411F /* NSString+Regex.m in Sources */,
@@ -1060,6 +1071,7 @@
 				04A14C941BDDC97E002D8452 /* LoginViewController.m in Sources */,
 				041287101BD79F1D0032411F /* UserInfo.m in Sources */,
 				041287181BD79F1D0032411F /* UIImage+FixOrientation.m in Sources */,
+				04CA4B2F1C0EF8E60011E190 /* EditMyInfoViewController.m in Sources */,
 				04AC75951BDA06BB00415ACF /* UIViewController+BaseController.m in Sources */,
 				045290061BD7A55400D2734A /* SegmentView.m in Sources */,
 				041287111BD79F1D0032411F /* UserSettingInfo.m in Sources */,

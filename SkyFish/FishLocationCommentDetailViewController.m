@@ -206,7 +206,6 @@
     [reply_tf becomeFirstResponder];
 }
 
-
 #pragma mark - 键盘出现
 - (void)keyboardWillShow:(NSNotification*)notification
 {

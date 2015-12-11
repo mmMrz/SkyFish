@@ -21,7 +21,7 @@
 @property (nonatomic, strong) UIImage *bgImg;
 @property (nonatomic, strong) NSString *skill;
 @property (nonatomic, strong) NSString *age;
-@property (nonatomic, strong) NSString *adress;
+@property (nonatomic, strong) NSString *address;
 @property (nonatomic, strong) NSNumber *blogCount;
 @property (nonatomic, strong) NSString *cared;
 @property (nonatomic, strong) NSString *fans;

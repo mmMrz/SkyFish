@@ -8,6 +8,7 @@
 
 #import "PersonPage.h"
 #import "MyWeiboCell.h"
+#import "EditMyInfoViewController.h"
 
 @implementation PersonPage{
     NSDictionary *personInfoDic;
@@ -22,8 +23,15 @@
     self.navigationController.navigationBar.translucent = YES;
     [self setTitle:@"个人主页"];
     [self.navigationItem addLeftBarButtonItem:[UIBarButtonItem themedBackButtonWithTarget:self andSelector:@selector(navBack)]];
+    [self.navigationItem addRightBarButtonItem:[UIBarButtonItem themedBarButtonWithTarget:self andSelector:@selector(editMyInfo:) andButtonTitle:@"编辑"]];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self loadData];
+}
+
+- (void)editMyInfo:(UIButton *)sender {
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    EditMyInfoViewController *editMyInfoVC = [story instantiateViewControllerWithIdentifier:@"EditMyInfoViewController"];
+    [self.navigationController pushViewController:editMyInfoVC animated:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated

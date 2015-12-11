@@ -631,6 +631,257 @@
             </objects>
             <point key="canvasLocation" x="688" y="1051"/>
         </scene>
+        <!--Edit My Info View Controller-->
+        <scene sceneID="Hhh-7a-yEU">
+            <objects>
+                <viewController storyboardIdentifier="EditMyInfoViewController" id="73n-dF-Grq" customClass="EditMyInfoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Hkf-LQ-J62"/>
+                        <viewControllerLayoutGuide type="bottom" id="5WQ-GS-ZcN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Fcu-ic-u2x">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="未登录头像" translatesAutoresizingMaskIntoConstraints="NO" id="6cf-Hd-Ebw">
+                                <rect key="frame" x="130" y="15" width="60" height="60"/>
+                                <animations/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oa5-7I-nlV">
+                                <rect key="frame" x="10" y="88" width="300" height="35"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oZT-hU-lkg">
+                                        <rect key="frame" x="60" y="3" width="1" height="29"/>
+                                        <animations/>
+                                        <color key="backgroundColor" red="0.94563972510000005" green="0.94563972510000005" blue="0.94563972510000005" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="昵称" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FpG-OU-w6K">
+                                        <rect key="frame" x="9" y="7" width="42" height="21"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="0.56348167539267013" green="0.56348167539267013" blue="0.56348167539267013" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p6h-4e-ys6">
+                                        <rect key="frame" x="69" y="0.0" width="223" height="35"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="73n-dF-Grq" id="ifD-c8-h6H"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bQb-pD-t1Y">
+                                <rect key="frame" x="10" y="174" width="300" height="35"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nti-he-Llv">
+                                        <rect key="frame" x="60" y="3" width="1" height="29"/>
+                                        <animations/>
+                                        <color key="backgroundColor" red="0.94563972510000005" green="0.94563972510000005" blue="0.94563972510000005" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="地区" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5E-l7-be4">
+                                        <rect key="frame" x="9" y="7" width="42" height="21"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="0.56348167540000005" green="0.56348167540000005" blue="0.56348167540000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YQh-wQ-tAA">
+                                        <rect key="frame" x="69" y="0.0" width="223" height="35"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="73n-dF-Grq" id="CWK-wc-KpR"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="siJ-Ld-RyJ">
+                                <rect key="frame" x="10" y="217" width="300" height="35"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hha-eR-f0v">
+                                        <rect key="frame" x="60" y="3" width="1" height="29"/>
+                                        <animations/>
+                                        <color key="backgroundColor" red="0.94563972510000005" green="0.94563972510000005" blue="0.94563972510000005" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="钓龄" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRk-gB-Knk">
+                                        <rect key="frame" x="9" y="7" width="42" height="21"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="0.56348167540000005" green="0.56348167540000005" blue="0.56348167540000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fhq-Ck-IOH">
+                                        <rect key="frame" x="69" y="0.0" width="223" height="35"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OpV-Uc-iF6">
+                                        <rect key="frame" x="60" y="0.0" width="240" height="35"/>
+                                        <animations/>
+                                        <connections>
+                                            <action selector="changeFishAge:" destination="73n-dF-Grq" eventType="touchUpInside" id="1q5-oZ-bsX"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OyW-uk-hy5">
+                                <rect key="frame" x="10" y="260" width="300" height="35"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QzW-qy-zih">
+                                        <rect key="frame" x="60" y="3" width="1" height="29"/>
+                                        <animations/>
+                                        <color key="backgroundColor" red="0.94563972510000005" green="0.94563972510000005" blue="0.94563972510000005" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="擅长" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5RI-kj-bNu">
+                                        <rect key="frame" x="9" y="7" width="42" height="21"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="0.56348167540000005" green="0.56348167540000005" blue="0.56348167540000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2UQ-hL-ATe">
+                                        <rect key="frame" x="69" y="0.0" width="223" height="35"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TLx-NG-8Xa">
+                                        <rect key="frame" x="60" y="0.0" width="240" height="35"/>
+                                        <animations/>
+                                        <connections>
+                                            <action selector="changeFishAge:" destination="73n-dF-Grq" eventType="touchUpInside" id="oyp-HX-TUO"/>
+                                            <segue destination="23A-zJ-hRd" kind="push" id="YzC-E5-Leh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="性别" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4eH-cO-nll">
+                                <rect key="frame" x="19" y="131" width="42" height="35"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.56348167540000005" green="0.56348167540000005" blue="0.56348167540000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T0E-6D-mt6">
+                                <rect key="frame" x="73" y="134" width="30" height="30"/>
+                                <animations/>
+                                <state key="normal" title="~"/>
+                                <connections>
+                                    <action selector="chageSex:" destination="73n-dF-Grq" eventType="touchUpInside" id="Dab-nf-qqf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ofq-er-Jqj">
+                                <rect key="frame" x="178" y="134" width="30" height="30"/>
+                                <animations/>
+                                <state key="normal" title="~"/>
+                                <connections>
+                                    <action selector="chageSex:" destination="73n-dF-Grq" eventType="touchUpInside" id="E0x-77-dqw"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="绅士" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xmR-HW-Rt5">
+                                <rect key="frame" x="111" y="138" width="42" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="淑女" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTF-CY-ZgJ">
+                                <rect key="frame" x="216" y="138" width="42" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jp1-Tp-LfI">
+                                <rect key="frame" x="130" y="15" width="60" height="60"/>
+                                <animations/>
+                                <connections>
+                                    <action selector="changeHead:" destination="73n-dF-Grq" eventType="touchUpInside" id="RDM-h9-nOB"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7kB-vq-QRR">
+                                <rect key="frame" x="10" y="303" width="300" height="193"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="73n-dF-Grq" id="LSS-ji-Pj8"/>
+                                </connections>
+                            </textView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" red="0.9669161758" green="0.9669161758" blue="0.9669161758" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="_fishAge" destination="fhq-Ck-IOH" id="a24-iT-uBd"/>
+                        <outlet property="_headView" destination="6cf-Hd-Ebw" id="1JV-M8-xy0"/>
+                        <outlet property="_nikeName" destination="p6h-4e-ys6" id="W9m-Md-77W"/>
+                        <outlet property="_region" destination="YQh-wQ-tAA" id="p2A-kT-cwz"/>
+                        <outlet property="_sexBoy" destination="T0E-6D-mt6" id="mSJ-Wd-2pO"/>
+                        <outlet property="_sexGirl" destination="Ofq-er-Jqj" id="UWa-2j-edo"/>
+                        <outlet property="_sign" destination="7kB-vq-QRR" id="f4v-hs-tLH"/>
+                        <outlet property="_skill" destination="2UQ-hL-ATe" id="Tz5-gJ-sxl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iJE-5Y-aih" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1078" y="1051"/>
+        </scene>
+        <!--Select Skill View Controller-->
+        <scene sceneID="y6I-dX-HYi">
+            <objects>
+                <viewController id="23A-zJ-hRd" customClass="SelectSkillViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UBn-1F-xuD"/>
+                        <viewControllerLayoutGuide type="bottom" id="QVw-dF-0Sg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yOD-ON-fHg">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ph2-FC-L3K">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="23A-zJ-hRd" id="cHf-FQ-t5B"/>
+                                    <outlet property="delegate" destination="23A-zJ-hRd" id="wMH-Ft-i1R"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="DWl-LW-moW"/>
+                    <connections>
+                        <outlet property="_tableView" destination="ph2-FC-L3K" id="CUO-Wd-Alf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NeU-Xy-D3v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1459" y="1051"/>
+        </scene>
         <!--Dynamic Detail View Controller-->
         <scene sceneID="Zh5-3F-ish">
             <objects>

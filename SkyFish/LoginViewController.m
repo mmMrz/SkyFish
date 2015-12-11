@@ -46,6 +46,8 @@
         [[GlobalData sharedInstance].currentUserInfo setUid:responseDic[@"data"][@"id"]];
         [[GlobalData sharedInstance].currentUserInfo setUserInfoWithDic:responseDic[@"data"]];
         
+        [self requestQINIUToken];
+        
         //登录融云服务器
         [[RCIM sharedRCIM] connectWithToken:responseDic[@"data"][@"rongToken"] success:^(NSString *userId) {
             NSLog(@"登录融云服务器成功");
@@ -55,8 +57,22 @@
             NSLog(@"融云TOKEN失效");
         }];
         
-        
         [self dismissViewControllerAnimated:YES completion:nil];
+    } failed:^(NSError *error) {
+        [ProgressHUD showError:[error localizedDescription]];
+    }];
+}
+
+- (void)requestQINIUToken
+{
+    [CSLoadData requestOfInfomationWithURI:COMMON_QINIUTOKEN andParameters:nil complete:^(NSDictionary *responseDic) {
+        if ([responseDic[@"status"] integerValue]==0) {
+            [ProgressHUD dismiss];
+        }else{
+            [ProgressHUD showSuccess:responseDic[@"info"]];
+        }
+        NSString *qiniuToken = responseDic[@"data"][@"token"];
+        [[GlobalData sharedInstance].currentUserInfo setQiniuToken:qiniuToken];
     } failed:^(NSError *error) {
         [ProgressHUD showError:[error localizedDescription]];
     }];

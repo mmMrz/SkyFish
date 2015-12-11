@@ -17,6 +17,7 @@
 #define USER_UPDATEADDR @"/user/updateAddr" //位置更新
 #define USER_GETMYINFO @"/user/getmyinfo" //获取本人信息
 #define USER_GETUSERINFO @"/user/getUserinfo" //获取用户信息
+#define USER_MODINFO @"/user/modInfo" //修改用户信息
 
 //钓点
 #define PLACE_GETPLACE @"/place/getPlace"//获取钓点列表
